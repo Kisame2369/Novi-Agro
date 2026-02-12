@@ -1,3 +1,8 @@
+.header {
+    background-color: var(--white);
+    border-bottom: 1px solid #e5e7eb;
+}
+
 .navbar {
     margin: 0;
     position: relative;
@@ -6,7 +11,7 @@
 
 .navLinks{
     display: flex;
-    margin: 25px 0;
+    padding: 25px 0;
     align-items: center;
     justify-content: center;
     gap: 20px;

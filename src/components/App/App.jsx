@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-const MainPage = lazy(() => import("..//../pages/MainPage.jsx"));
+const MainPage = lazy(() => import("..//../pages/MainPage/MainPage.jsx"));
 const Header = lazy(() => import("../Header/Header.jsx"));
+const ProductsPage = lazy(() => import("../../pages/ProductsPage/ProductsPage.jsx"));
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/products" element={<ProductsPage />} />
         </Routes>
       </Suspense>
     </>

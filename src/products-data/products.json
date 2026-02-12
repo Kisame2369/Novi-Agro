@@ -1,0 +1,460 @@
+{
+  "title": "Novi Agro Product Categories",
+  "products": [
+    {
+      "id": 1,
+      "name": "PF-Sorb+",
+      "group": "Toxin Binder",
+      "img": "/products-img/pf-sorb.png",
+      "alt": "pf-sorb"
+    },
+    {
+      "id": 2,
+      "name": "PF-Primetox",
+      "group": "Toxin Binder",
+      "img": "/products-img/pf-primetox.png",
+      "alt": "pf-primetox"
+    },
+    {
+      "id": 3,
+      "name": "Nazyme Multi Pro (Multienzymes)",
+      "group": "Enzymes",
+      "img": "/products-img/nazyme-multi-pro.png",
+      "alt": "nazyme-multi-pro"
+    },
+    {
+      "id": 4,
+      "name": "Nazyme Multi Active (Multienzymes)",
+      "group": "Enzymes",
+      "img": "/products-img/nazyme-multi-active.png",
+      "alt": "nazyme-multi-active"
+    },
+    {
+      "id": 5,
+      "name": "Naphyt 5000 (Phytase Enzyme)",
+      "group": "Enzymes",
+      "img": "/products-img/naphyt-5000.png",
+      "alt": "naphyt-5000"
+    },
+    {
+      "id": 6,
+      "name": "Beta-Mannanase",
+      "group": "Enzymes",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 7,
+      "name": "PF-Acid Dry Extra",
+      "group": "Acidifier",
+      "img": "/products-img/pf-acid-dry-extra.png",
+      "alt": "pf-acid-dry-extra"
+    },
+    {
+      "id": 8,
+      "name": "PF-Acid Dry",
+      "group": "Acidifier",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 9,
+      "name": "PF-Fef Dry",
+      "group": "Emulsifier",
+      "img": "/products-img/pf-fef-dry.png",
+      "alt": "pf-fef-dry"
+    },
+    {
+      "id": 10,
+      "name": "PF-Hepamix",
+      "group": "Hepatoprotector",
+      "img": "/products-img/pf-hepamix.png",
+      "alt": "pf-hepamix"
+    },
+    {
+      "id": 11,
+      "name": "Betaine Hdrochloride",
+      "group": "Hepatoprotector",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 12,
+      "name": "60% Choline Chloride",
+      "group": "Hepatoprotector",
+      "img": "/products-img/60-choline-chloride.png",
+      "alt": "60-choline-chloride"
+    },
+    {
+      "id": 13,
+      "name": "PF-Mould Dry",
+      "group": "Mould Inhibitor",
+      "img": "/products-img/pf-mould-dry.png",
+      "alt": "pf-mould-dry"
+    },
+    {
+      "id": 14,
+      "name": "PF-Gzanbin",
+      "group": "Pellet Binder",
+      "img": "/products-img/pf-gzanbin.png",
+      "alt": "pf-gzanbin"
+    },
+    {
+      "id": 15,
+      "name": "0.25% Namix Layer Premix (With Colour)",
+      "group": "Premixes",
+      "img": "/products-img/layer-premix-with-color.png",
+      "alt": "layer-premix-with-color"
+    },
+    {
+      "id": 16,
+      "name": "0.25% Namix Layer Premix (No Colour)",
+      "group": "Premixes",
+      "img": "/products-img/layer-premix-without-color.png",
+      "alt": "layer-premix-without-color"
+    },
+    {
+      "id": 17,
+      "name": "0.25% Namix Grower Premix",
+      "group": "Premixes",
+      "img": "/products-img/grower-premix.png",
+      "alt": "grower-premix"
+    },
+    {
+      "id": 18,
+      "name": "0.25% Namix Super Chick Premix",
+      "group": "Premixes",
+      "img": "/products-img/super-chick-premix.png",
+      "alt": "super-chick-premix"
+    },
+    {
+      "id": 19,
+      "name": "0.25% Namix Broiler Starter Premix",
+      "group": "Premixes",
+      "img": "/products-img/broiler-starter-premix.png",
+      "alt": "broiler-starter-premix"
+    },
+    {
+      "id": 20,
+      "name": "0.25% Namix Broiler Finisher Premix",
+      "group": "Premixes",
+      "img": "/products-img/broiler-finisher-premix.png",
+      "alt": "broiler-finisher-premix"
+    },
+    {
+      "id": 21,
+      "name": "0.5% Namix Fish Premix",
+      "group": "Premixes",
+      "img": "/products-img/fish-premix.png",
+      "alt": "fish-premix"
+    },
+    {
+      "id": 22,
+      "name": "0.5% Namix Fish Premix HSTD",
+      "group": "Premixes",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 23,
+      "name": "0.25% Namix Broiler Breeder Premix",
+      "group": "Premixes",
+      "img": "/products-img/broiler-breeder-premix.png",
+      "alt": "broiler-breeder-premix"
+    },
+    {
+      "id": 24,
+      "name": "0.25% Namix Layer Breeder Premix",
+      "group": "Premixes",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 25,
+      "name": "5% Layer Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 26,
+      "name": "2.5% Layer Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 27,
+      "name": "5% Grower Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 28,
+      "name": "2.5% Grower Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 29,
+      "name": "5% Chick Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 30,
+      "name": "2.5% Chick Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 31,
+      "name": "5% Broiler Starter Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 32,
+      "name": "5% Broiler Finisher Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 33,
+      "name": "5% Broiler Super Starter Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 34,
+      "name": "5% Broiler Super Finisher Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 35,
+      "name": "2.5% Broiler Starter Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 36,
+      "name": "2.5% Broiler Finisher Concentrate",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 37,
+      "name": "1% Pig Concentrate (Grower/Fattener)",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 38,
+      "name": "1% Pig Concentrate (Piglet/ Gestation/Lactating)",
+      "group": "Concentrates",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 39,
+      "name": "L-Methionine",
+      "group": "Amino Acids",
+      "img": "/products-img/l-methionine.png",
+      "alt": "l-methionine"
+    },
+    {
+      "id": 40,
+      "name": "L-Lysine HCL",
+      "group": "Amino Acids",
+      "img": "/products-img/l-lysine.png",
+      "alt": "l-lysine"
+    },
+    {
+      "id": 41,
+      "name": "L-Lysine Sulphate",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 42,
+      "name": "L-Threonine",
+      "group": "Amino Acids",
+      "img": "/products-img/l-threonine.png",
+      "alt": "l-threonine"
+    },
+    {
+      "id": 43,
+      "name": "L-Tryptophane",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 44,
+      "name": "L-Arginine",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 45,
+      "name": "L-Valine",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 46,
+      "name": "L-Isoleucine",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 47,
+      "name": "L-Glycine",
+      "group": "Amino Acids",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 48,
+      "name": "DCP",
+      "group": "Ca & P Sources",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 49,
+      "name": "MCP",
+      "group": "Ca & P Sources",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 50,
+      "name": "Vitamin C (Ascorbic Acid 99.9%)",
+      "group": "Anti-Stress",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 51,
+      "name": "Sodium Bicarbonate",
+      "group": "Anti-Stress",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 52,
+      "name": "Betaine Hydrochloride 96%",
+      "group": "Anti-Stress",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 53,
+      "name": "60% Choline Chloride",
+      "group": "Choline",
+      "img": "/products-img/60-choline-chloride.png",
+      "alt": "60-choline-chloride"
+    },
+    {
+      "id": 54,
+      "name": "Salinomycin Sodium 12%",
+      "group": "Coccidiostat",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 55,
+      "name": "Diclavuril Feed Grade 0.2%",
+      "group": "Coccidiostat",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 56,
+      "name": "Zinc Bacitracin 15%",
+      "group": "Growth Promoter",
+      "img": "/products-img/zinc-bacitracin.png",
+      "alt": "zinc-bacitracin"
+    },
+    {
+      "id": 57,
+      "name": "Flavomycin 8%",
+      "group": "Growth Promoter",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 58,
+      "name": "Meat & Bone Meal (MBM)",
+      "group": "Animal Proteins",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 59,
+      "name": "Blood Meal",
+      "group": "Animal Proteins",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 60,
+      "name": "Poultry Meal",
+      "group": "Animal Proteins",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 61,
+      "name": "Feather Meal",
+      "group": "Animal Proteins",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 62,
+      "name": "Canthaxanthin 10%",
+      "group": "Pigments/ Yolk Colourants",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 63,
+      "name": "Lutein 4%",
+      "group": "Pigments/ Yolk Colourants",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 64,
+      "name": "Avixanthin Red",
+      "group": "Pigments/ Yolk Colourants",
+      "img": "",
+      "alt": ""
+    },
+    {
+      "id": 65,
+      "name": "Avixant Yellow",
+      "group": "Pigments/ Yolk Colourants",
+      "img": "",
+      "alt": ""
+    }
+  ]
+}
