@@ -29,22 +29,22 @@ export default function ProductsPage() {
             <p className={css.title}>Our Products</p>
             <div className={css.container}>
                 <div className={css.wrapper}>
-<div className={css.leftSection}>
-    <p className={css.filtersTitle}>Filters</p>
-    <div className={css.categoryFilters}>
-        {categories.map(category => (
-            <label className={css.categoryLabel} key={category}>
-                <input
-                    className={css.categoryCheckbox}
-                    type="checkbox"
-                    checked={selectedCategories.includes(category)}
-                    onChange={() => handleCategoryChange(category)}
-                />
-                {category}
-            </label>
-        ))}
-    </div>
-</div>
+                    <div className={css.leftSection}>
+                        <p className={css.filtersTitle}>Filters</p>
+                        <div className={css.categoryFilters}>
+                            {categories.map(category => (
+                                <label className={css.categoryLabel} key={category}>
+                                    <input
+                                        className={css.categoryCheckbox}
+                                        type="checkbox"
+                                        checked={selectedCategories.includes(category)}
+                                        onChange={() => handleCategoryChange(category)}
+                                    />
+                                    {category}
+                                </label>
+                            ))}
+                        </div>
+                    </div>
 
                     <div className={css.rightSection}>
                         <input

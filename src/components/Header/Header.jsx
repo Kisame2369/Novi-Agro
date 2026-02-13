@@ -67,8 +67,8 @@ export default function Header() {
         
         menu: (provided) => ({
             ...provided,
-            backgroundColor: '#f9f9f9',
-            border: 'none',
+            backgroundColor: 'var(--white)',
+            border: '1px solid #e5e7eb',
             boxShadow: 'none',
             borderRadius: '18px',
         }),

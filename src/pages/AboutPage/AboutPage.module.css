@@ -1,0 +1,183 @@
+.container {
+    width: 1000px;
+    margin: 80px auto;
+}
+
+.section {
+    margin-bottom: 80px;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    color: var(--green);
+    margin-bottom: 24px;
+    border-bottom: 3px solid var(--dark-yellow);
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.introContent {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.introImage {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.introImage img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.staffGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.staffCard {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.yearBadge {
+    background: var(--green);
+    color: var(--white);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.staffCount {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.staffLabel {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.chartContainer {
+    margin-top: 30px;
+    background: var(--gray-light);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.chartRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.chartRow:last-child {
+    margin-bottom: 0;
+}
+
+.chartLabel {
+    width: 60px;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.chartBarArea {
+    flex-grow: 1;
+    background: #e5e7eb;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.chartBar {
+    height: 100%;
+    background: var(--dark-yellow);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    min-width: 50px;
+}
+
+.barValue {
+    color: var(--black);
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.productCard {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.periodHeader {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+}
+
+.periodYear {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.periodTitle {
+    font-size: 22px;
+    margin: 5px 0 0 0;
+    color: var(--black);
+}
+
+.productList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.productItem {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    .chartLabel {
+        width: 50px;
+        font-size: 14px;
+    }
+}
