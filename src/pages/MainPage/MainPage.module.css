@@ -1,3 +1,4 @@
+
 .sliderContainer {
     position: relative;
     width: 100%;
@@ -56,7 +57,7 @@
     right: 56%
 }
 
-.button{
+.button {
     pointer-events: all;
     font-weight: 700;
     font-size: 22px;
@@ -75,3 +76,326 @@
 .button:hover {
     transform: scale(1.03);
 }
+
+
+.newProductSection {
+    background-color: var(--white);
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.newProductInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+.newProductBadge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--yellow);
+    border: 1.5px solid var(--dark-yellow);
+    border-radius: 30px;
+    padding: 6px 18px;
+    margin-bottom: 32px;
+}
+
+.newProductBadge span {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark-yellow);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.newProductContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.newProductText {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.newProductLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.newProductTitle {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.newProductSubtitle {
+    font-size: 20px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.newProductDescription {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 28px;
+}
+
+.newProductFeatures {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newProductFeatures li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--black);
+    font-weight: 500;
+}
+
+.featureIcon {
+    width: 22px;
+    height: 22px;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.newProductBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 30px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.newProductBtn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.newProductImageWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+}
+
+.newProductImageBg {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: linear-gradient(135deg, var(--yellow) 0%, #fde8b0 100%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.newProductImage {
+    position: relative;
+    z-index: 2;
+    max-width: 320px;
+    max-height: 360px;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.newProductImage:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.mvrSection {
+    background-color: #f3f7f4;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mvrSection::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--white);
+    clip-path: ellipse(55% 100% at 50% 0%);
+}
+
+.mvrInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.mvrHeader {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.mvrTagline {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 14px;
+}
+
+.mvrTitle {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.15;
+}
+
+.mvrGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.mvrCard {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mvrCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mvrCardAccent {
+    background-color: var(--green);
+    border-color: var(--green);
+}
+
+.mvrCardAccent .mvrCardTitle,
+.mvrCardAccent .mvrCardText,
+.mvrCardAccent .mvrIconWrap {
+    color: var(--white);
+}
+
+.mvrCardAccent .mvrDivider {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.mvrIconWrap {
+    color: var(--green);
+    margin-bottom: 20px;
+    width: 52px;
+    height: 52px;
+}
+
+.mvrCardAccent .mvrIconWrap {
+    color: var(--white);
+}
+
+.mvrIcon {
+    width: 100%;
+    height: 100%;
+}
+
+.mvrCardTitle {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 14px;
+}
+
+.mvrDivider {
+    width: 40px;
+    height: 3px;
+    background-color: var(--dark-yellow);
+    border-radius: 2px;
+    margin-bottom: 18px;
+}
+
+.mvrCardText {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4b5563;
+}
+
+@media (max-width: 900px) {
+    .newProductContent {
+        grid-template-columns: 1fr;
+    }
+
+    .newProductImageWrap {
+        min-height: 280px;
+    }
+
+    .mvrGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .overlay h1 {
+        font-size: 36px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        top: 25%;
+    }
+
+    .overlay p {
+        font-size: 22px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        top: 40%;
+    }
+
+    .button {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 52%;
+    }
+}
+
