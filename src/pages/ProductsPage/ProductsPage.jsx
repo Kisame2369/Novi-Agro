@@ -1,24 +1,51 @@
-import productsData from "../../products-data/products.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductItem from "../../components/ProductItem/ProductItem.jsx";
+import ProductModal from "../ProductPage/ProductPage.jsx";
 import css from "./ProductsPage.module.css";
 
+const PROJECT_ID = "8e6hfi9b";
+const DATASET = "production";
+const QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name asc) {
+  _id,
+  name,
+  group,
+  "imageUrl": image.asset->url,
+  description,
+  composition,
+  dosage,
+  packaging,
+  shelfLife
+}`);
+const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}?query=${QUERY}`;
+
 export default function ProductsPage() {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-    const categories = [...new Set(productsData.products.map(p => p.group))];
+    useEffect(() => {
+        fetch(SANITY_URL)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data.result ?? []);
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
+    }, []);
+
+    const categories = [...new Set(products.map(p => p.group))].sort();
 
     const handleCategoryChange = (category) => {
-        setSelectedCategories(prev => 
+        setSelectedCategories(prev =>
             prev.includes(category)
                 ? prev.filter(c => c !== category)
                 : [...prev, category]
         );
     };
 
-
-    const filteredProducts = productsData.products.filter(product => {
+    const filteredProducts = products.filter(product => {
         const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.group);
         return matchesSearch && matchesCategory;
@@ -55,16 +82,30 @@ export default function ProductsPage() {
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
 
-                        <ul className={css.productList}>
-                            {filteredProducts.map((product) => (
-                                <li key={product.id} className={css.productItem}>
-                                    <ProductItem product={product} />
-                                </li>
-                            ))}
-                        </ul>
+                        {loading ? (
+                            <p style={{ color: "var(--green)", fontSize: 18 }}>Loading...</p>
+                        ) : (
+                            <ul className={css.productList}>
+                                {filteredProducts.map((product) => (
+                                    <li key={product._id} className={css.productItem}>
+                                        <ProductItem 
+                                            product={product}
+                                            onClick={setSelectedProduct}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
                     </div>
                 </div>
             </div>
+
+            {selectedProduct && (
+                <ProductModal 
+                    product={selectedProduct} 
+                    onClose={() => setSelectedProduct(null)} 
+                />
+            )}
         </>
     );
-};
+}
