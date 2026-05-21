@@ -56,6 +56,11 @@
     border-color: var(--green);
 }
 
+.productItem {
+    display: flex;
+
+}
+
 .productList {
     list-style: none;
     padding: 0;
@@ -63,8 +68,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 16px;
+    align-items: stretch;
 }
-
 .title{
     display: flex;
     background-color: var(--green);
