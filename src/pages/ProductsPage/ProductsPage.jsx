@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import ProductItem from "../../components/ProductItem/ProductItem.jsx";
-import ProductModal from "../ProductPage/ProductPage.jsx";
+import ProductModal from "../../components/ProductModal/ProductModal.jsx";
 import css from "./ProductsPage.module.css";
 
 const PROJECT_ID = "8e6hfi9b";
 const DATASET = "production";
-const QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name asc) {
+
+const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name asc) {
   _id,
   name,
   group,
@@ -16,23 +17,41 @@ const QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name 
   packaging,
   shelfLife
 }`);
-const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}?query=${QUERY}`;
+
+const PRODUCT_LIST_QUERY = encodeURIComponent(`*[_type == "productList"] | order(group asc, name asc) {
+  _id,
+  name,
+  group,
+  description,
+  composition,
+  dosage,
+  packaging,
+  shelfLife
+}`);
+
+const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}`;
+
+const VARIANT_GROUPS = ["Concentrates", "Amino Acids", "Animal Proteins", "Premixes"];
 
 export default function ProductsPage() {
     const [products, setProducts] = useState([]);
+    const [productListItems, setProductListItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [groupProducts, setGroupProducts] = useState([]);
+    const [groupImageUrl, setGroupImageUrl] = useState(null);
 
     useEffect(() => {
-        fetch(SANITY_URL)
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data.result ?? []);
-                setLoading(false);
-            })
-            .catch(() => setLoading(false));
+        Promise.all([
+            fetch(`${SANITY_URL}?query=${PRODUCTS_QUERY}`).then(r => r.json()),
+            fetch(`${SANITY_URL}?query=${PRODUCT_LIST_QUERY}`).then(r => r.json()),
+        ]).then(([productsData, listData]) => {
+            setProducts(productsData.result ?? []);
+            setProductListItems(listData.result ?? []);
+            setLoading(false);
+        }).catch(() => setLoading(false));
     }, []);
 
     const categories = [...new Set(products.map(p => p.group))].sort();
@@ -43,6 +62,20 @@ export default function ProductsPage() {
                 ? prev.filter(c => c !== category)
                 : [...prev, category]
         );
+    };
+
+    const handleProductClick = (product) => {
+        if (VARIANT_GROUPS.includes(product.group)) {
+            const variants = productListItems.filter(p => p.group === product.group);
+            setGroupProducts(variants);
+            setGroupImageUrl(product.imageUrl ?? null);
+            const matched = variants.find(p => p.name === product.name) ?? variants[0] ?? product;
+            setSelectedProduct(matched);
+        } else {
+            setGroupProducts([]);
+            setGroupImageUrl(null);
+            setSelectedProduct(product);
+        }
     };
 
     const filteredProducts = products.filter(product => {
@@ -88,9 +121,9 @@ export default function ProductsPage() {
                             <ul className={css.productList}>
                                 {filteredProducts.map((product) => (
                                     <li key={product._id} className={css.productItem}>
-                                        <ProductItem 
+                                        <ProductItem
                                             product={product}
-                                            onClick={setSelectedProduct}
+                                            onClick={handleProductClick}
                                         />
                                     </li>
                                 ))}
@@ -101,9 +134,16 @@ export default function ProductsPage() {
             </div>
 
             {selectedProduct && (
-                <ProductModal 
-                    product={selectedProduct} 
-                    onClose={() => setSelectedProduct(null)} 
+                <ProductModal
+                    product={selectedProduct}
+                    groupProducts={groupProducts}
+                    groupImageUrl={groupImageUrl}
+                    onProductChange={setSelectedProduct}
+                    onClose={() => {
+                        setSelectedProduct(null);
+                        setGroupProducts([]);
+                        setGroupImageUrl(null);
+                    }}
                 />
             )}
         </>

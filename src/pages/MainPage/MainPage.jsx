@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { NavLink } from "react-router-dom";
@@ -7,7 +8,26 @@ import "swiper/css/effect-fade";
 
 import css from "./MainPage.module.css";
 
+const PROJECT_ID = "8e6hfi9b";
+const DATASET = "production";
+const NEW_PRODUCT_QUERY = encodeURIComponent(`*[_type == "newProduct"][0] {
+  name,
+  group,
+  "imageUrl": image.asset->url,
+  description
+}`);
+const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}?query=${NEW_PRODUCT_QUERY}`;
+
 export default function MainPage() {
+    const [newProduct, setNewProduct] = useState(null);
+
+    useEffect(() => {
+        fetch(SANITY_URL)
+            .then(r => r.json())
+            .then(data => setNewProduct(data.result ?? null))
+            .catch(() => null);
+    }, []);
+
     return (
         <div>
             {/* SLIDER */}
@@ -44,64 +64,50 @@ export default function MainPage() {
                         <img src="/images/slider6.jpg" alt="Slider 5" />
                     </SwiperSlide>
                 </Swiper>
-                
+
                 <div className={css.overlay}>
                     <h1>Quality feed - Healthy life</h1>
                     <p>The best feed for your animals</p>
-                    <NavLink
-                        to="/products"
-                        end
-                        className={css.button}
-                    >
+                    <NavLink to="/products" end className={css.button}>
                         Our products
                     </NavLink>
                 </div>
             </div>
 
-            <section className={css.newProductSection}>
-                <div className={css.newProductInner}>
-                    <div className={css.newProductBadge}>
-                        <span>New Arrival</span>
-                    </div>
-                    <div className={css.newProductContent}>
-                        <div className={css.newProductText}>
-                            <p className={css.newProductLabel}>Featured Product</p>
-                            <h2 className={css.newProductTitle}>PF-Sorb+</h2>
-                            <p className={css.newProductSubtitle}>Toxin Binder</p>
-                            <p className={css.newProductDescription}>
-                                Our latest breakthrough in mycotoxin management. PF-Sorb+ combines multiple
-                                binding agents for broad-spectrum protection — keeping your livestock safe
-                                and your productivity high, even when feed quality varies.
-                            </p>
-                            {/* <ul className={css.newProductFeatures}>
-                                <li>
-                                    <span className={css.featureIcon}>✓</span>
-                                    Broad-spectrum mycotoxin adsorption
-                                </li>
-                                <li>
-                                    <span className={css.featureIcon}>✓</span>
-                                    Suitable for poultry, swine & cattle
-                                </li>
-                                <li>
-                                    <span className={css.featureIcon}>✓</span>
-                                    Protects gut integrity & immune function
-                                </li>
-                            </ul>*/}
-                            <NavLink to="/products" className={css.newProductBtn}>
-                                Explore Product
-                            </NavLink>
+            {newProduct && (
+                <section className={css.newProductSection}>
+                    <div className={css.newProductInner}>
+                        <div className={css.newProductBadge}>
+                            <span>New Arrival</span>
                         </div>
-                        <div className={css.newProductImageWrap}>
-                            <div className={css.newProductImageBg}></div>
-                            <img
-                                src="/products-img/pf-sorb-Photoroom.png"
-                                alt="PF-Sorb+ Toxin Binder"
-                                className={css.newProductImage}
-                            />
+                        <div className={css.newProductContent}>
+                            <div className={css.newProductText}>
+                                <p className={css.newProductLabel}>Featured Product</p>
+                                <h2 className={css.newProductTitle}>{newProduct.name}</h2>
+                                {newProduct.group && (
+                                    <p className={css.newProductSubtitle}>{newProduct.group}</p>
+                                )}
+                                {newProduct.description && (
+                                    <p className={css.newProductDescription}>{newProduct.description}</p>
+                                )}
+                                <NavLink to="/products" className={css.newProductBtn}>
+                                    Explore Product
+                                </NavLink>
+                            </div>
+                            <div className={css.newProductImageWrap}>
+                                <div className={css.newProductImageBg}></div>
+                                {newProduct.imageUrl && (
+                                    <img
+                                        src={newProduct.imageUrl}
+                                        alt={newProduct.name}
+                                        className={css.newProductImage}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             <section className={css.mvrSection}>
                 <div className={css.mvrInner}>
@@ -115,9 +121,7 @@ export default function MainPage() {
                             <div className={css.mvrIconWrap}>
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={css.mvrIcon}>
                                     <path d="M24 4 L28 16 L40 16 L30 24 L34 36 L24 28 L14 36 L18 24 L8 16 L20 16 Z"
-                                        stroke="currentColor"
-                                        strokeWidth="2.5"
-                                        strokeLinejoin="round" />
+                                        stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
                                 </svg>
                             </div>
                             <h3 className={css.mvrCardTitle}>Our Mission</h3>
@@ -133,9 +137,7 @@ export default function MainPage() {
                             <div className={css.mvrIconWrap}>
                                 <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={css.mvrIcon}>
                                     <path d="M4 24C8 14 16 10 24 10C32 10 40 14 44 24C40 34 32 38 24 38C16 38 8 34 4 24Z"
-                                        stroke="currentColor"
-                                        strokeWidth="2.5"
-                                        strokeLinejoin="round" />
+                                        stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
                                     <circle cx="24" cy="24" r="6" stroke="currentColor" strokeWidth="2.5" />
                                 </svg>
                             </div>

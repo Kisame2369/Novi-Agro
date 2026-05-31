@@ -5,7 +5,7 @@ const MainPage = lazy(() => import("..//../pages/MainPage/MainPage.jsx"));
 const Header = lazy(() => import("../Header/Header.jsx"));
 const ProductsPage = lazy(() => import("../../pages/ProductsPage/ProductsPage.jsx"));
 const AboutPage = lazy(() => import("../../pages/AboutPage/AboutPage.jsx"));
-const ProductPage = lazy(() => import("../../pages/ProductPage/ProductPage.jsx"));
+const ProductPage = lazy(() => import("../ProductModal/ProductModal.jsx"));
 
 function App() {
   
