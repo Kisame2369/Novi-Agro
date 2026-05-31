@@ -1,0 +1,199 @@
+.page {
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+}
+
+.sectionTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--green);
+    margin: 0 0 40px;
+    display: inline-block;
+    border-bottom: 3px solid var(--dark-yellow);
+    padding-bottom: 8px;
+}
+
+.officesSection {
+    margin-bottom: 48px;
+}
+
+.officesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.officeCard {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.officeCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+.officeTag {
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--white);
+}
+
+.officeMap {
+    height: 200px;
+    overflow: hidden;
+    background: #e5e7eb;
+}
+
+.officeMap iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: grayscale(20%);
+}
+
+.officeBody {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.officeCity {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+}
+
+.officeAddressRow {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.officePin {
+    color: var(--green);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.officeAddress {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #4b5563;
+    margin: 0;
+}
+
+.officeLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    text-decoration: none;
+    margin-top: auto;
+    transition: gap 0.2s ease;
+}
+
+.officeLink:hover {
+    gap: 8px;
+}
+
+.detailsSection {
+    margin-bottom: 0;
+}
+
+.detailsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.detailCard {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    width: 260px;
+}
+
+.detailCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.09);
+}
+
+.detailIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.detailTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+}
+
+.detailLines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.detailLink {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.detailLink:hover {
+    color: var(--dark-green);
+    text-decoration: underline;
+}
+
+
+@media (max-width: 900px) {
+    .officesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .detailsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .content {
+        padding: 40px 16px 60px;
+    }
+}
