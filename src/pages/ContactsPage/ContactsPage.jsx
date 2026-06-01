@@ -1,3 +1,4 @@
+import { useState } from "react";
 import css from "./ContactsPage.module.css";
 import { MapPin, Phone, Mail, ChevronRight } from "lucide-react";
 
@@ -62,6 +63,34 @@ const phones = [
     "+234 904 506 7037",
 ];
 
+function MapFrame({ src, title }) {
+    const [loaded, setLoaded] = useState(false);
+
+    return (
+        <div className={css.officeMap}>
+            {!loaded && (
+                <div className={css.mapPlaceholder}>
+                    <div className={css.mapPlaceholderIcon}>
+                        <MapPin size={28} />
+                    </div>
+                    <span className={css.mapPlaceholderText}>Loading map…</span>
+                </div>
+            )}
+            <iframe
+                title={title}
+                src={src}
+                width="100%"
+                height="100%"
+                style={{ border: 0, opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                onLoad={() => setLoaded(true)}
+            />
+        </div>
+    );
+}
+
 export default function ContactsPage() {
     return (
         <div className={css.page}>
@@ -76,18 +105,7 @@ export default function ContactsPage() {
                                 <div className={css.officeTag} style={{ backgroundColor: office.color }}>
                                     {office.region}
                                 </div>
-                                <div className={css.officeMap}>
-                                    <iframe
-                                        title={`Map ${office.region}`}
-                                        src={office.mapSrc}
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen=""
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    />
-                                </div>
+                                <MapFrame src={office.mapSrc} title={`Map ${office.region}`} />
                                 <div className={css.officeBody}>
                                     <p className={css.officeCity}>{office.city}</p>
                                     <div className={css.officeAddressRow}>

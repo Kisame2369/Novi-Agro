@@ -57,6 +57,7 @@
     height: 200px;
     overflow: hidden;
     background: #e5e7eb;
+    position: relative;
 }
 
 .officeMap iframe {
@@ -64,6 +65,41 @@
     height: 100%;
     display: block;
     filter: grayscale(20%);
+}
+
+.mapPlaceholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #f0f4f1;
+    z-index: 1;
+}
+
+.mapPlaceholderIcon {
+    color: #9ca3af;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+.mapPlaceholderText {
+    font-size: 13px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
 }
 
 .officeBody {

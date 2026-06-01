@@ -6,7 +6,6 @@
     display: flex;
     gap: 24px;
     align-items: flex-start;
-    position: sticky;
     top: 0;
 }
 
