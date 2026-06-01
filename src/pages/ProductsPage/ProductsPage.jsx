@@ -4,8 +4,8 @@ import ProductModal from "../../components/ProductModal/ProductModal.jsx";
 import css from "./ProductsPage.module.css";
 import Loader from "../../components/Loader/Loader.jsx";
 
-const PROJECT_ID = "8e6hfi9b";
-const DATASET = "production";
+const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID;
+const DATASET = import.meta.env.VITE_SANITY_DATASET;
 
 const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name asc) {
   _id,

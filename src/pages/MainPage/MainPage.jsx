@@ -9,8 +9,8 @@ import "swiper/css/effect-fade";
 
 import css from "./MainPage.module.css";
 
-const PROJECT_ID = "8e6hfi9b";
-const DATASET = "production";
+const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID;
+const DATASET = import.meta.env.VITE_SANITY_DATASET;
 const NEW_PRODUCT_QUERY = encodeURIComponent(`*[_type == "newProduct"][0] {
   name,
   group,
