@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ProductItem from "../../components/ProductItem/ProductItem.jsx";
 import ProductModal from "../../components/ProductModal/ProductModal.jsx";
 import css from "./ProductsPage.module.css";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const PROJECT_ID = "8e6hfi9b";
 const DATASET = "production";
@@ -116,7 +117,7 @@ export default function ProductsPage() {
                         />
 
                         {loading ? (
-                            <p style={{ color: "var(--green)", fontSize: 18 }}>Loading...</p>
+                            <Loader inline />
                         ) : (
                             <ul className={css.productList}>
                                 {filteredProducts.map((product) => (

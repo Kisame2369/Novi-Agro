@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { NavLink } from "react-router-dom";
+import Loader from "../../components/Loader/Loader.jsx";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -20,12 +21,16 @@ const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/$
 
 export default function MainPage() {
     const [newProduct, setNewProduct] = useState(null);
+    const [newProductLoading, setNewProductLoading] = useState(true);
 
     useEffect(() => {
         fetch(SANITY_URL)
             .then(r => r.json())
-            .then(data => setNewProduct(data.result ?? null))
-            .catch(() => null);
+            .then(data => {
+                setNewProduct(data.result ?? null);
+                setNewProductLoading(false);
+            })
+            .catch(() => setNewProductLoading(false));
     }, []);
 
     return (
@@ -74,7 +79,9 @@ export default function MainPage() {
                 </div>
             </div>
 
-            {newProduct && (
+            {newProductLoading ? (
+                <Loader inline />
+            ) : newProduct ? (
                 <section className={css.newProductSection}>
                     <div className={css.newProductInner}>
                         <div className={css.newProductBadge}>
@@ -107,7 +114,7 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
-            )}
+            ) : null}
 
             <section className={css.mvrSection}>
                 <div className={css.mvrInner}>

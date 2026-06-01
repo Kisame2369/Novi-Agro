@@ -1,0 +1,125 @@
+.footer {
+    background-color: var(--dark-green);
+    color: var(--white);
+    margin-top: auto;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 40px 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.1fr 1.4fr;
+    gap: 40px;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.logo {
+    width: 110px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.tagline {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.navTitle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--dark-yellow);
+    margin: 0 0 14px 0;
+}
+
+.nav,
+.contacts,
+.addresses {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: var(--white);
+}
+
+.social {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 4px 0;
+    margin-top: 6px;
+    transition: color 0.2s ease;
+}
+
+.social:hover {
+    color: var(--white);
+}
+
+.addressLink {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    text-decoration: none;
+    margin: 0 0 10px 0;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.addressLink:last-child {
+    margin-bottom: 0;
+}
+
+.addressLink:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+.bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 18px 40px;
+}
+
+.bottom p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding: 40px 24px 32px;
+    }
+}
+
+@media (max-width: 560px) {
+    .inner {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom {
+        padding: 16px 24px;
+    }
+}
