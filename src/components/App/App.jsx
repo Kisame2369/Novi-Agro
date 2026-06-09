@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
+import ScrollToTop from "../Scroll/Scroll.jsx";
 
 const MainPage = lazy(() => import("../../pages/MainPage/MainPage.jsx"));
 const Header = lazy(() => import("../Header/Header.jsx"));
@@ -13,6 +14,7 @@ const EventsPage = lazy(() => import("../../pages/EventsPage/EventsPage.jsx"));
 function App() {
     return (
         <Suspense fallback={<Loader />}>
+            <ScrollToTop />
             <Header />
             <Routes>
                 <Route path="/" element={<MainPage />} />

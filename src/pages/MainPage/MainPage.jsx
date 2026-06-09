@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader.jsx";
 
 import css from "./MainPage.module.css";
@@ -10,13 +10,18 @@ const NEW_PRODUCT_QUERY = encodeURIComponent(`*[_type == "newProduct"][0] {
   name,
   group,
   "imageUrl": image.asset->url,
-  description
+  description,
+  composition,
+  dosage,
+  packaging,
+  shelfLife
 }`);
 const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}?query=${NEW_PRODUCT_QUERY}`;
 
 export default function MainPage() {
     const [newProduct, setNewProduct] = useState(null);
     const [newProductLoading, setNewProductLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(SANITY_URL)
@@ -27,6 +32,11 @@ export default function MainPage() {
             })
             .catch(() => setNewProductLoading(false));
     }, []);
+
+    const handleExplore = (e) => {
+        e.preventDefault();
+        navigate("/products");
+    };
 
     return (
         <div>
@@ -44,7 +54,7 @@ export default function MainPage() {
                 <div className={css.overlay}>
                     <h1>Quality feed - Healthy life</h1>
                     <p>The best feed for your animals</p>
-                    <NavLink to="/products" end className={css.button}>
+                    <NavLink to="/products" end className={css.button} onClick={handleExplore}>
                         Our products
                     </NavLink>
                 </div>
@@ -55,22 +65,51 @@ export default function MainPage() {
             ) : newProduct ? (
                 <section className={css.newProductSection}>
                     <div className={css.newProductInner}>
-                        <div className={css.newProductBadge}>
-                            <span>New Arrival</span>
-                        </div>
                         <div className={css.newProductContent}>
                             <div className={css.newProductText}>
-                                <p className={css.newProductLabel}>Featured Product</p>
-                                <h2 className={css.newProductTitle}>{newProduct.name}</h2>
+                                <div className={css.newProductBadge}>
+                                    <span>New Arrival</span>
+                                </div>
                                 {newProduct.group && (
-                                    <p className={css.newProductSubtitle}>{newProduct.group}</p>
+                                    <p className={css.newProductLabel}>{newProduct.group}</p>
                                 )}
+                                <h2 className={css.newProductTitle}>{newProduct.name}</h2>
                                 {newProduct.description && (
                                     <p className={css.newProductDescription}>{newProduct.description}</p>
                                 )}
-                                <NavLink to="/products" className={css.newProductBtn}>
-                                    Explore Product
-                                </NavLink>
+                                {(newProduct.dosage || newProduct.packaging || newProduct.shelfLife) && (
+                                    <div className={css.newProductSpecs}>
+                                        {newProduct.dosage && (
+                                            <div className={css.newProductSpec}>
+                                                <span className={css.specLabel}>Dosage</span>
+                                                <span className={css.specValue}>{newProduct.dosage}</span>
+                                            </div>
+                                        )}
+                                        {newProduct.packaging && (
+                                            <div className={css.newProductSpec}>
+                                                <span className={css.specLabel}>Packaging</span>
+                                                <span className={css.specValue}>{newProduct.packaging}</span>
+                                            </div>
+                                        )}
+                                        {newProduct.shelfLife && (
+                                            <div className={css.newProductSpec}>
+                                                <span className={css.specLabel}>Shelf Life</span>
+                                                <span className={css.specValue}>{newProduct.shelfLife}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
+                                {newProduct.composition && (
+                                    <div className={css.newProductComposition}>
+                                        <span className={css.compositionLabel}>Composition</span>
+                                        <p className={css.compositionText}>{newProduct.composition}</p>
+                                    </div>
+                                )}
+
+                                <button className={css.newProductBtn} onClick={handleExplore}>
+                                    Explore more
+                                </button>
                             </div>
                             <div className={css.newProductImageWrap}>
                                 <div className={css.newProductImageBg}></div>

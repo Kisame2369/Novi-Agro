@@ -41,7 +41,7 @@
     line-height: 1.1;
     letter-spacing: 0;
     margin: 0;
-    max-width: 700px;
+    max-width: 100%;
 }
 
 .overlay p {
@@ -71,10 +71,9 @@
     transform: scale(1.03);
 }
 
-
 .newProductSection {
-    background-color: var(--white);
-    padding: 80px 0;
+    background: linear-gradient(135deg, #f9fafb 0%, #f0f7f2 100%);
+    padding: 90px 0;
     overflow: hidden;
 }
 
@@ -85,28 +84,10 @@
     position: relative;
 }
 
-.newProductBadge {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--yellow);
-    border: 1.5px solid var(--dark-yellow);
-    border-radius: 30px;
-    padding: 6px 18px;
-    margin-bottom: 32px;
-}
-
-.newProductBadge span {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--dark-yellow);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
 .newProductContent {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 70px;
     align-items: center;
 }
 
@@ -116,8 +97,27 @@
     gap: 0;
 }
 
+.newProductBadge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--yellow);
+    border: 2px solid var(--dark-yellow);
+    border-radius: 40px;
+    padding: 14px 32px;
+    margin-bottom: 24px;
+    align-self: flex-start;
+}
+
+.newProductBadge span {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--dark-yellow);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
 .newProductLabel {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--green);
     text-transform: uppercase;
@@ -126,60 +126,66 @@
 }
 
 .newProductTitle {
-    font-size: 52px;
-    font-weight: 800;
+    font-size: 56px;
+    font-weight: 900;
     color: var(--black);
-    line-height: 1;
-    margin-bottom: 6px;
-}
-
-.newProductSubtitle {
-    font-size: 20px;
-    font-weight: 500;
-    color: #6b7280;
-    margin-bottom: 20px;
+    line-height: 1.0;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
 }
 
 .newProductDescription {
     font-size: 16px;
     line-height: 1.7;
     color: #4b5563;
+    margin-bottom: 20px;
+}
+
+.newProductSpecs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.newProductSpec {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+.specLabel {
+    font-weight: 600;
+    color: #6b7280;
+    min-width: 86px;
+    flex-shrink: 0;
+}
+
+.specValue {
+    color: #4b5563;
+    font-weight: 400;
+}
+
+.newProductComposition {
     margin-bottom: 28px;
 }
 
-.newProductFeatures {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 36px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.newProductFeatures li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.compositionLabel {
     font-size: 15px;
-    color: var(--black);
-    font-weight: 500;
+    font-weight: 600;
+    color: #6b7280;
+    display: block;
+    margin-bottom: 2px;
 }
 
-.featureIcon {
-    width: 22px;
-    height: 22px;
-    background-color: var(--green);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    flex-shrink: 0;
-    line-height: 1;
-    text-align: center;
-    padding-top: 1px;
+.compositionText {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+    margin: 0;
 }
 
 .newProductBtn {
@@ -192,8 +198,11 @@
     font-size: 16px;
     padding: 14px 32px;
     border-radius: 30px;
+    border: none;
+    cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     align-self: flex-start;
+    margin-top: 4px;
 }
 
 .newProductBtn:hover {
@@ -206,13 +215,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 420px;
 }
 
 .newProductImageBg {
     position: absolute;
-    width: 340px;
-    height: 340px;
+    width: 380px;
+    height: 380px;
     background: linear-gradient(135deg, var(--yellow) 0%, #fde8b0 100%);
     border-radius: 50%;
     top: 50%;
@@ -223,15 +232,15 @@
 .newProductImage {
     position: relative;
     z-index: 2;
-    max-width: 320px;
-    max-height: 360px;
+    max-width: 340px;
+    max-height: 400px;
     object-fit: contain;
-    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.18));
     transition: transform 0.3s ease;
 }
 
 .newProductImage:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
 }
 
 .mvrSection {
@@ -361,6 +370,12 @@
 
     .newProductImageWrap {
         min-height: 280px;
+        order: -1;
+    }
+
+    .newProductTitle {
+        font-size: 48px;
+        letter-spacing: -1px;
     }
 
     .mvrGrid {
@@ -394,5 +409,10 @@
 
     .overlay p {
         font-size: 18px;
+    }
+
+    .newProductTitle {
+        font-size: 36px;
+        letter-spacing: -0.5px;
     }
 }
