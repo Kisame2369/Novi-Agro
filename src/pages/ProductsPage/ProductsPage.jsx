@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
-import ProductItem from "../../components/ProductItem/ProductItem.jsx";
 import ProductModal from "../../components/ProductModal/ProductModal.jsx";
 import css from "./ProductsPage.module.css";
 import Loader from "../../components/Loader/Loader.jsx";
 
 const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID;
 const DATASET = import.meta.env.VITE_SANITY_DATASET;
+const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}`;
 
-const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(group asc, name asc) {
+const CATEGORIES_QUERY = encodeURIComponent(`*[_type == "productCategory"] | order(group asc) {
+  _id,
+  group,
+  description,
+  "imageUrl": image.asset->url
+}`);
+
+const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(name asc) {
   _id,
   name,
   group,
@@ -19,71 +26,45 @@ const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(group a
   shelfLife
 }`);
 
-const PRODUCT_LIST_QUERY = encodeURIComponent(`*[_type == "productList"] | order(group asc, name asc) {
-  _id,
-  name,
-  group,
-  description,
-  composition,
-  dosage,
-  packaging,
-  shelfLife
-}`);
-
-const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${DATASET}`;
-
-const VARIANT_GROUPS = ["Concentrates", "Amino Acids", "Animal Proteins", "Premixes"];
-
 export default function ProductsPage() {
+    const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
-    const [productListItems, setProductListItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedGroups, setSelectedGroups] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [groupProducts, setGroupProducts] = useState([]);
-    const [groupImageUrl, setGroupImageUrl] = useState(null);
 
     useEffect(() => {
         Promise.all([
+            fetch(`${SANITY_URL}?query=${CATEGORIES_QUERY}`).then(r => r.json()),
             fetch(`${SANITY_URL}?query=${PRODUCTS_QUERY}`).then(r => r.json()),
-            fetch(`${SANITY_URL}?query=${PRODUCT_LIST_QUERY}`).then(r => r.json()),
-        ]).then(([productsData, listData]) => {
-            setProducts(productsData.result ?? []);
-            setProductListItems(listData.result ?? []);
+        ]).then(([catData, prodData]) => {
+            setCategories(catData.result ?? []);
+            setProducts(prodData.result ?? []);
             setLoading(false);
         }).catch(() => setLoading(false));
     }, []);
 
-    const categories = [...new Set(products.map(p => p.group))].sort();
+    const allGroups = [...new Set(categories.map(c => c.group))].sort();
 
-    const handleCategoryChange = (category) => {
-        setSelectedCategories(prev =>
-            prev.includes(category)
-                ? prev.filter(c => c !== category)
-                : [...prev, category]
+    const handleGroupToggle = (group) => {
+        setSelectedGroups(prev =>
+            prev.includes(group) ? prev.filter(g => g !== group) : [...prev, group]
         );
     };
 
-    const handleProductClick = (product) => {
-        if (VARIANT_GROUPS.includes(product.group)) {
-            const variants = productListItems.filter(p => p.group === product.group);
-            setGroupProducts(variants);
-            setGroupImageUrl(product.imageUrl ?? null);
-            const matched = variants.find(p => p.name === product.name) ?? variants[0] ?? product;
-            setSelectedProduct(matched);
-        } else {
-            setGroupProducts([]);
-            setGroupImageUrl(null);
-            setSelectedProduct(product);
-        }
-    };
-
-    const filteredProducts = products.filter(product => {
-        const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.group);
-        return matchesSearch && matchesCategory;
+    const filteredCategories = categories.filter(cat => {
+        const matchesSearch = cat.group.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesFilter = selectedGroups.length === 0 || selectedGroups.includes(cat.group);
+        return matchesSearch && matchesFilter;
     });
+
+    const handleCategoryClick = (category) => {
+        const groupProducts = products.filter(p => p.group === category.group);
+        setSelectedCategory({ ...category, groupProducts });
+        setSelectedProduct(null);
+    };
 
     return (
         <>
@@ -93,15 +74,15 @@ export default function ProductsPage() {
                     <div className={css.leftSection}>
                         <p className={css.filtersTitle}>Filters</p>
                         <div className={css.categoryFilters}>
-                            {categories.map(category => (
-                                <label className={css.categoryLabel} key={category}>
+                            {allGroups.map(group => (
+                                <label className={css.categoryLabel} key={group}>
                                     <input
                                         className={css.categoryCheckbox}
                                         type="checkbox"
-                                        checked={selectedCategories.includes(category)}
-                                        onChange={() => handleCategoryChange(category)}
+                                        checked={selectedGroups.includes(group)}
+                                        onChange={() => handleGroupToggle(group)}
                                     />
-                                    {category}
+                                    {group}
                                 </label>
                             ))}
                         </div>
@@ -111,7 +92,7 @@ export default function ProductsPage() {
                         <input
                             className={css.searchInput}
                             type="text"
-                            placeholder="Search"
+                            placeholder="Search categories..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -119,13 +100,22 @@ export default function ProductsPage() {
                         {loading ? (
                             <Loader inline />
                         ) : (
-                            <ul className={css.productList}>
-                                {filteredProducts.map((product) => (
-                                    <li key={product._id} className={css.productItem}>
-                                        <ProductItem
-                                            product={product}
-                                            onClick={handleProductClick}
-                                        />
+                            <ul className={css.categoryGrid}>
+                                {filteredCategories.map((cat) => (
+                                    <li key={cat._id}>
+                                        <button
+                                            className={css.categoryCard}
+                                            onClick={() => handleCategoryClick(cat)}
+                                        >
+                                            <div className={css.imageWrapper}>
+                                                {cat.imageUrl ? (
+                                                    <img src={cat.imageUrl} alt={cat.group} className={css.image} />
+                                                ) : (
+                                                    <div className={css.noImage} />
+                                                )}
+                                            </div>
+                                            <p className={css.categoryName}>{cat.group}</p>
+                                        </button>
                                     </li>
                                 ))}
                             </ul>
@@ -134,16 +124,14 @@ export default function ProductsPage() {
                 </div>
             </div>
 
-            {selectedProduct && (
+            {selectedCategory && (
                 <ProductModal
-                    product={selectedProduct}
-                    groupProducts={groupProducts}
-                    groupImageUrl={groupImageUrl}
+                    category={selectedCategory}
+                    selectedProduct={selectedProduct}
                     onProductChange={setSelectedProduct}
                     onClose={() => {
+                        setSelectedCategory(null);
                         setSelectedProduct(null);
-                        setGroupProducts([]);
-                        setGroupImageUrl(null);
                     }}
                 />
             )}

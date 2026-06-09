@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
-import { X, ChevronDown } from "lucide-react";
+import { useEffect } from "react";
+import { X } from "lucide-react";
 import css from "./ProductModal.module.css";
 
-export default function ProductModal({ product, groupProducts = [], groupImageUrl, onProductChange, onClose }) {
-    const [current, setCurrent] = useState(product);
-    const [selectOpen, setSelectOpen] = useState(false);
-
-    useEffect(() => {
-        setCurrent(product);
-    }, [product]);
+export default function ProductModal({ category, selectedProduct, onProductChange, onClose }) {
+    const { group, description, imageUrl, groupProducts = [] } = category;
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -16,27 +11,12 @@ export default function ProductModal({ product, groupProducts = [], groupImageUr
     }, []);
 
     useEffect(() => {
-        const handleEsc = (e) => {
-            if (e.key === "Escape") {
-                if (selectOpen) setSelectOpen(false);
-                else onClose();
-            }
-        };
+        const handleEsc = (e) => { if (e.key === "Escape") onClose(); };
         window.addEventListener("keydown", handleEsc);
         return () => window.removeEventListener("keydown", handleEsc);
-    }, [onClose, selectOpen]);
+    }, [onClose]);
 
-    if (!current) return null;
-
-    const hasVariants = groupProducts.length > 1;
-
-    const displayImage = hasVariants ? groupImageUrl : current.imageUrl;
-
-    const handleVariantSelect = (p) => {
-        setCurrent(p);
-        onProductChange(p);
-        setSelectOpen(false);
-    };
+    const showProduct = !!selectedProduct;
 
     return (
         <div className={css.overlay} onClick={onClose}>
@@ -47,93 +27,88 @@ export default function ProductModal({ product, groupProducts = [], groupImageUr
 
                 <div className={css.content}>
                     <div className={css.imageSection}>
-                        {displayImage ? (
-                            <img src={displayImage} alt={current.name} className={css.image} />
-                        ) : (
-                            <div className={css.noImage}>No image</div>
-                        )}
+                        <img
+                            key={showProduct ? selectedProduct._id : "cat"}
+                            src={showProduct && selectedProduct.imageUrl ? selectedProduct.imageUrl : (imageUrl ?? "")}
+                            alt={showProduct ? selectedProduct.name : group}
+                            className={css.image}
+                        />
                     </div>
-
                     <div className={css.info}>
                         <div className={css.header}>
-                            <span className={css.badge}>{current.group}</span>
+                            <span className={css.badge}>{group}</span>
+                            {!showProduct && description && (
+                                <p className={css.text}>{description}</p>
+                            )}
 
-                            {hasVariants ? (
-                                <div className={css.variantSelectorWrap}>
-                                    <button
-                                        className={css.variantTrigger}
-                                        onClick={() => setSelectOpen((v) => !v)}
-                                        aria-haspopup="listbox"
-                                        aria-expanded={selectOpen}
-                                    >
-                                        <span className={css.variantTriggerText}>{current.name}</span>
-                                        <ChevronDown
-                                            size={18}
-                                            className={`${css.chevron} ${selectOpen ? css.chevronOpen : ""}`}
-                                        />
-                                    </button>
+                            {showProduct && (
+                                <h2 className={css.productTitle}>{selectedProduct.name}</h2>
+                            )}
+                        </div>
 
-                                    {selectOpen && (
-                                        <>
-                                            <div
-                                                className={css.dropdownBackdrop}
-                                                onClick={() => setSelectOpen(false)}
-                                            />
-                                            <ul className={css.dropdown} role="listbox">
-                                                {groupProducts.map((p) => (
-                                                    <li
-                                                        key={p._id}
-                                                        role="option"
-                                                        aria-selected={p._id === current._id}
-                                                        className={`${css.dropdownItem} ${p._id === current._id ? css.dropdownItemActive : ""}`}
-                                                        onClick={() => handleVariantSelect(p)}
-                                                    >
-                                                        {p.name}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </>
+                        {groupProducts.length > 0 && (
+                            <div className={css.section}>
+                                <h3 className={css.sectionTitle}>Products</h3>
+                                <div className={css.bubbleList}>
+                                    {groupProducts.map((p) => {
+                                        const isActive = selectedProduct?._id === p._id;
+                                        return (
+                                            <button
+                                                key={p._id}
+                                                className={`${css.bubble} ${isActive ? css.bubbleActive : ""}`}
+                                                onClick={() => onProductChange(isActive ? null : p)}
+                                            >
+                                                {p.name}
+                                                {isActive && (
+                                                    <span className={css.bubbleClose} aria-label="Deselect">
+                                                        <X size={16} strokeWidth={3} />
+                                                    </span>
+                                                )}
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
+
+                        {showProduct && (
+                            <div className={css.productDetails}>
+                                {selectedProduct.description && (
+                                    <div className={css.section}>
+                                        <h3 className={css.sectionTitle}>Description</h3>
+                                        <p className={css.text}>{selectedProduct.description}</p>
+                                    </div>
+                                )}
+
+                                {selectedProduct.composition && (
+                                    <div className={css.section}>
+                                        <h3 className={css.sectionTitle}>Composition</h3>
+                                        <p className={css.text}>{selectedProduct.composition}</p>
+                                    </div>
+                                )}
+
+                                <div className={css.specs}>
+                                    {selectedProduct.dosage && (
+                                        <div className={css.spec}>
+                                            <span className={css.label}>Dosage:</span>
+                                            <span className={css.value}>{selectedProduct.dosage}</span>
+                                        </div>
+                                    )}
+                                    {selectedProduct.packaging && (
+                                        <div className={css.spec}>
+                                            <span className={css.label}>Packaging:</span>
+                                            <span className={css.value}>{selectedProduct.packaging}</span>
+                                        </div>
+                                    )}
+                                    {selectedProduct.shelfLife && (
+                                        <div className={css.spec}>
+                                            <span className={css.label}>Shelf Life:</span>
+                                            <span className={css.value}>{selectedProduct.shelfLife}</span>
+                                        </div>
                                     )}
                                 </div>
-                            ) : (
-                                <h2 className={css.title}>{current.name}</h2>
-                            )}
-                        </div>
-
-                        {current.description && (
-                            <div className={css.section}>
-                                <h3 className={css.sectionTitle}>Description</h3>
-                                <p className={css.text}>{current.description}</p>
                             </div>
                         )}
-
-                        {current.composition && (
-                            <div className={css.section}>
-                                <h3 className={css.sectionTitle}>Composition</h3>
-                                <p className={css.text}>{current.composition}</p>
-                            </div>
-                        )}
-
-                        <div className={css.specs}>
-                            {current.dosage && (
-                                <div className={css.spec}>
-                                    <span className={css.label}>Dosage:</span>
-                                    <span className={css.value}>{current.dosage}</span>
-                                </div>
-                            )}
-                            {current.packaging && (
-                                <div className={css.spec}>
-                                    <span className={css.label}>Packaging:</span>
-                                    <span className={css.value}>{current.packaging}</span>
-                                </div>
-                            )}
-                            {current.shelfLife && (
-                                <div className={css.spec}>
-                                    <span className={css.label}>Shelf Life:</span>
-                                    <span className={css.value}>{current.shelfLife}</span>
-                                </div>
-                            )}
-                        </div>
                     </div>
                 </div>
             </div>
