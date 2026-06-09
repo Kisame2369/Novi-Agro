@@ -63,7 +63,7 @@ export default function MainPage() {
             {newProductLoading ? (
                 <Loader inline />
             ) : newProduct ? (
-                <section className={css.newProductSection}>
+                <section id="new-product-section" className={css.newProductSection}>
                     <div className={css.newProductInner}>
                         <div className={css.newProductContent}>
                             <div className={css.newProductText}>
@@ -186,6 +186,16 @@ export default function MainPage() {
                     </div>
                 </div>
             </section>
+            {newProduct && (
+                <button
+                    className={css.newArrivalFab}
+                    onClick={() =>
+                        document.getElementById("new-product-section")?.scrollIntoView({ behavior: "smooth" })
+                    }
+                >
+                    New<br />Arrival
+                </button>
+            )}
         </div>
     );
 }
