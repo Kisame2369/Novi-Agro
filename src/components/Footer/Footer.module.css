@@ -5,18 +5,19 @@
 }
 
 .inner {
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 56px 40px 40px;
+    padding: 40px 16px 32px;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 1.1fr 1.4fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 32px;
 }
 
 .brand {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .logo {
@@ -26,7 +27,7 @@
 }
 
 .tagline {
-    font-size: 15px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.65);
     margin: 0;
 }
@@ -37,7 +38,7 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--dark-yellow);
-    margin: 0 0 14px 0;
+    margin: 0 0 12px 0;
 }
 
 .nav,
@@ -51,7 +52,7 @@
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    padding: 4px 0;
+    padding: 6px 0;
     transition: color 0.2s ease;
 }
 
@@ -66,8 +67,8 @@
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    padding: 4px 0;
-    margin-top: 6px;
+    padding: 6px 0;
+    margin-top: 4px;
     transition: color 0.2s ease;
 }
 
@@ -80,7 +81,7 @@
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.5;
     text-decoration: none;
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     display: block;
     transition: color 0.2s ease;
 }
@@ -97,29 +98,61 @@
 .bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    padding: 18px 40px;
+    padding: 16px 16px;
 }
 
 .bottom p {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.45);
     margin: 0;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 768px) {
     .inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-        padding: 40px 24px 32px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        padding: 48px 32px 40px;
     }
-}
 
-@media (max-width: 560px) {
-    .inner {
-        grid-template-columns: 1fr;
+    .brand {
+        gap: 16px;
+    }
+
+    .tagline {
+        font-size: 15px;
+    }
+
+    .link {
+        padding: 4px 0;
+    }
+
+    .social {
+        padding: 4px 0;
+        margin-top: 6px;
+    }
+
+    .addressLink {
+        margin: 0 0 10px 0;
     }
 
     .bottom {
-        padding: 16px 24px;
+        padding: 20px 32px;
+    }
+
+    .bottom p {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .inner {
+        max-width: 1440px;
+        grid-template-columns: 1.2fr 0.8fr 1.1fr 1.4fr;
+        gap: 48px;
+        padding: 56px 80px 40px;
+    }
+
+    .bottom {
+        padding: 24px 80px;
     }
 }
