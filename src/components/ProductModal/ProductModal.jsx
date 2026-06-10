@@ -49,7 +49,7 @@ export default function ProductModal({ category, selectedProduct, onProductChang
                         {groupProducts.length > 0 && (
                             <div className={css.section}>
                                 <h3 className={css.sectionTitle}>Products</h3>
-                                <div className={css.bubbleList}>
+                                <div className={`${css.bubbleList} ${groupProducts.length > 10 ? css.bubbleListCompact : ""}`}>
                                     {groupProducts.map((p) => {
                                         const isActive = selectedProduct?._id === p._id;
                                         return (
