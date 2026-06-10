@@ -56,7 +56,7 @@ export default function AboutPage() {
                             </p>
                         </div>
                         <div className={css.introImage}>
-                            <img src="/images/team.jpg" alt="Novi-Agro Team" />
+                            <img src="/images/team.webp" alt="Novi-Agro Team" />
                         </div>
                     </div>
                 </section>

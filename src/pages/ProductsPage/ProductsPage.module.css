@@ -150,7 +150,7 @@
     justify-content: center;
     background-image: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.3) 0%,
-            rgba(0, 0, 0, 0.5) 100%), url(/images/cow.jpg);
+            rgba(0, 0, 0, 0.5) 100%), url(/images/cow.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
