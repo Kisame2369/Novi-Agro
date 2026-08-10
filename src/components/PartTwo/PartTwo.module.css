@@ -1,0 +1,383 @@
+.benefits {
+    position: relative;
+    background-color: #f3f7f4;
+    padding: 50px 0 0;
+    overflow: hidden;
+}
+
+.containerFluid {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.left,
+.right {
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    max-width: 100%;
+    padding-right: 15px;
+}
+
+.secTitle {
+    margin-bottom: 24px;
+}
+
+.secTitleIcon {
+    display: inline-flex;
+    align-items: center;
+    color: var(--green);
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.secTitleIcon svg {
+    animation: floatArrow 2s ease-in-out infinite;
+}
+
+.tagline {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+.title {
+    margin: 12px 0 0;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--dark-green);
+}
+
+.text {
+    font-size: 15px;
+    line-height: 26px;
+    color: #626f62;
+    margin: 0 0 24px;
+}
+
+.qualityWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-right: 15px;
+}
+
+.qualityCol {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #eaf4ed;
+    border-radius: 4px;
+    padding: 14px 16px;
+    width: 100%;
+}
+
+.qualityCol:hover .qualityIcon {
+    background-color: var(--dark-green);
+}
+
+.qualityIcon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--white);
+    transition: background-color 0.3s ease;
+}
+
+.qualityIconGroup {
+    font-size: 20px;
+}
+
+.qualityTitle {
+    color: var(--dark-green);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    margin: 0;
+    word-break: normal;
+}
+
+.listWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+    padding-right: 15px;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #626f62;
+}
+
+.list li+li {
+    margin-top: 10px;
+}
+
+.checkIcon {
+    color: var(--green);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    flex-shrink: 0;
+}
+
+.btn {
+    display: inline-block;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 30px;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.imageWrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.bigImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    display: block;
+}
+
+.smImage {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    z-index: 3;
+}
+
+.smImage img {
+    width: 100%;
+    max-width: 180px;
+    border: 6px solid var(--white);
+    border-radius: 12px;
+    display: block;
+}
+
+.shapeTop {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .benefits {
+        padding: 70px 0 0;
+    }
+
+    .row {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left {
+        width: 50%;
+    }
+
+    .right {
+        width: 50%;
+    }
+
+    .content {
+        padding-right: 15px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .qualityWrap {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding-right: 0;
+    }
+
+    .qualityCol {
+        flex: 1;
+        min-width: 0;
+        padding: 14px 12px;
+    }
+
+    .qualityIcon {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 20px;
+    }
+
+    .qualityTitle {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .listWrap {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 0;
+    }
+
+    .imageWrap {
+        padding-left: 15px;
+    }
+
+    .smImage {
+        bottom: -15px;
+        left: 0;
+    }
+
+    .smImage img {
+        max-width: 200px;
+        border-width: 6px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .benefits {
+        padding: 90px 0 0;
+    }
+
+    .row {
+        gap: 0;
+    }
+
+    .content {
+        max-width: 620px;
+        margin-left: auto;
+        padding-right: 60px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .qualityWrap {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .qualityCol {
+        flex: 1;
+        min-width: 0;
+        padding: 18px 20px;
+    }
+
+    .qualityIcon {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        font-size: 28px;
+    }
+
+    .qualityTitle {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .listWrap {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .imageWrap {
+        padding-left: 40px;
+    }
+
+    .smImage {
+        bottom: 0;
+        left: 0;
+    }
+
+    .smImage img {
+        max-width: 320px;
+        border-width: 8px;
+    }
+
+    .shapeTop {
+        display: block;
+        position: absolute;
+        width: 22px;
+        height: 163px;
+        top: -20px;
+        left: 10px;
+        z-index: 2;
+        background-color: var(--green);
+        animation: shapeTopMove 3s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes floatArrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-6px);
+    }
+}
+
+@keyframes shapeTopMove {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(40px);
+    }
+}

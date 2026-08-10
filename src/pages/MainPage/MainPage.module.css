@@ -5,18 +5,6 @@
     overflow: hidden;
 }
 
-@media (min-width: 768px) {
-    .sliderContainer {
-        height: calc(100vh - 90px);
-    }
-}
-
-@media (min-width: 1440px) {
-    .sliderContainer {
-        height: calc(100vh - 112px);
-    }
-}
-
 .heroVideo {
     position: absolute;
     top: 0;
@@ -47,22 +35,6 @@
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .overlay {
-        gap: 18px;
-        padding: 0 7%;
-    }
-}
-
-@media (min-width: 1440px) {
-    .overlay {
-        align-items: flex-start;
-        padding: 0 8%;
-        gap: 20px;
-        text-align: left;
-    }
-}
-
 .overlay h1 {
     color: var(--white);
     font-weight: 700;
@@ -73,18 +45,6 @@
     max-width: 100%;
 }
 
-@media (min-width: 768px) {
-    .overlay h1 {
-        font-size: 44px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .overlay h1 {
-        font-size: 60px;
-    }
-}
-
 .overlay p {
     color: var(--white);
     font-weight: 700;
@@ -92,18 +52,6 @@
     line-height: 1.2;
     letter-spacing: 0;
     margin: 0;
-}
-
-@media (min-width: 768px) {
-    .overlay p {
-        font-size: 26px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .overlay p {
-        font-size: 35px;
-    }
 }
 
 .button {
@@ -120,41 +68,14 @@
     margin-top: 6px;
 }
 
-@media (min-width: 768px) {
-    .button {
-        font-size: 19px;
-        padding: 14px 28px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .button {
-        font-size: 22px;
-        padding: 15px 30px;
-        margin-top: 8px;
-    }
-}
-
 .button:hover {
     transform: scale(1.03);
 }
 
 .newProductSection {
     background: linear-gradient(135deg, #f9fafb 0%, #f0f7f2 100%);
-    padding: 48px 0;
+    padding: 48px 0 0;
     overflow: hidden;
-}
-
-@media (min-width: 768px) {
-    .newProductSection {
-        padding: 64px 0;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductSection {
-        padding: 90px 0;
-    }
 }
 
 .newProductInner {
@@ -164,36 +85,11 @@
     position: relative;
 }
 
-@media (min-width: 768px) {
-    .newProductInner {
-        padding: 0 32px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductInner {
-        padding: 0 40px;
-    }
-}
-
 .newProductContent {
     display: grid;
     grid-template-columns: 1fr;
     gap: 36px;
     align-items: center;
-}
-
-@media (min-width: 768px) {
-    .newProductContent {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductContent {
-        gap: 70px;
-    }
 }
 
 .newProductText {
@@ -213,38 +109,12 @@
     align-self: flex-start;
 }
 
-@media (min-width: 768px) {
-    .newProductBadge {
-        padding: 12px 28px;
-        margin-bottom: 20px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductBadge {
-        padding: 14px 32px;
-        margin-bottom: 24px;
-    }
-}
-
 .newProductBadge span {
     font-size: 16px;
     font-weight: 800;
     color: var(--dark-yellow);
     letter-spacing: 1.5px;
     text-transform: uppercase;
-}
-
-@media (min-width: 768px) {
-    .newProductBadge span {
-        font-size: 20px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductBadge span {
-        font-size: 24px;
-    }
 }
 
 .newProductLabel {
@@ -256,13 +126,6 @@
     margin-bottom: 8px;
 }
 
-@media (min-width: 768px) {
-    .newProductLabel {
-        font-size: 13px;
-        margin-bottom: 10px;
-    }
-}
-
 .newProductTitle {
     font-size: 34px;
     font-weight: 900;
@@ -272,32 +135,11 @@
     letter-spacing: -0.5px;
 }
 
-@media (min-width: 768px) {
-    .newProductTitle {
-        font-size: 44px;
-        letter-spacing: -1px;
-        margin-bottom: 16px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductTitle {
-        font-size: 56px;
-    }
-}
-
 .newProductDescription {
     font-size: 15px;
     line-height: 1.7;
     color: #4b5563;
     margin-bottom: 18px;
-}
-
-@media (min-width: 1440px) {
-    .newProductDescription {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
 }
 
 .newProductSpecs {
@@ -307,12 +149,6 @@
     margin-bottom: 18px;
 }
 
-@media (min-width: 1440px) {
-    .newProductSpecs {
-        margin-bottom: 20px;
-    }
-}
-
 .newProductSpec {
     display: flex;
     align-items: baseline;
@@ -320,12 +156,6 @@
     font-size: 14px;
     line-height: 1.6;
     color: #4b5563;
-}
-
-@media (min-width: 1440px) {
-    .newProductSpec {
-        font-size: 15px;
-    }
 }
 
 .specLabel {
@@ -344,12 +174,6 @@
     margin-bottom: 24px;
 }
 
-@media (min-width: 1440px) {
-    .newProductComposition {
-        margin-bottom: 28px;
-    }
-}
-
 .compositionLabel {
     font-size: 14px;
     font-weight: 600;
@@ -358,23 +182,11 @@
     margin-bottom: 2px;
 }
 
-@media (min-width: 1440px) {
-    .compositionLabel {
-        font-size: 15px;
-    }
-}
-
 .compositionText {
     font-size: 14px;
     line-height: 1.7;
     color: #4b5563;
     margin: 0;
-}
-
-@media (min-width: 1440px) {
-    .compositionText {
-        font-size: 15px;
-    }
 }
 
 .newProductBtn {
@@ -394,13 +206,6 @@
     margin-top: 4px;
 }
 
-@media (min-width: 1440px) {
-    .newProductBtn {
-        font-size: 16px;
-        padding: 14px 32px;
-    }
-}
-
 .newProductBtn:hover {
     background-color: var(--dark-green);
     transform: translateY(-2px);
@@ -414,24 +219,6 @@
     min-height: 260px;
 }
 
-@media (max-width: 767px) {
-    .newProductImageWrap {
-        order: -1;
-    }
-}
-
-@media (min-width: 768px) {
-    .newProductImageWrap {
-        min-height: 320px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductImageWrap {
-        min-height: 420px;
-    }
-}
-
 .newProductImageBg {
     position: absolute;
     width: 240px;
@@ -441,20 +228,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-@media (min-width: 768px) {
-    .newProductImageBg {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductImageBg {
-        width: 380px;
-        height: 380px;
-    }
 }
 
 .newProductImage {
@@ -467,41 +240,15 @@
     transition: transform 0.3s ease;
 }
 
-@media (min-width: 768px) {
-    .newProductImage {
-        max-width: 280px;
-        max-height: 340px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newProductImage {
-        max-width: 340px;
-        max-height: 400px;
-    }
-}
-
 .newProductImage:hover {
     transform: translateY(-8px) scale(1.03);
 }
 
 .mvrSection {
     background-color: #f3f7f4;
-    padding: 56px 0;
+    padding: 56px 0 0;
     position: relative;
     overflow: hidden;
-}
-
-@media (min-width: 768px) {
-    .mvrSection {
-        padding: 72px 0;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrSection {
-        padding: 100px 0;
-    }
 }
 
 .mvrSection::before {
@@ -521,33 +268,9 @@
     padding: 0 20px;
 }
 
-@media (min-width: 768px) {
-    .mvrInner {
-        padding: 0 32px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrInner {
-        padding: 0 40px;
-    }
-}
-
 .mvrHeader {
     text-align: center;
     margin-bottom: 36px;
-}
-
-@media (min-width: 768px) {
-    .mvrHeader {
-        margin-bottom: 48px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrHeader {
-        margin-bottom: 64px;
-    }
 }
 
 .mvrTagline {
@@ -560,13 +283,6 @@
     margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
-    .mvrTagline {
-        font-size: 13px;
-        margin-bottom: 12px;
-    }
-}
-
 .mvrTitle {
     font-size: 26px;
     font-weight: 800;
@@ -574,35 +290,10 @@
     line-height: 1.15;
 }
 
-@media (min-width: 768px) {
-    .mvrTitle {
-        font-size: 32px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrTitle {
-        font-size: 40px;
-    }
-}
-
 .mvrGrid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
-}
-
-@media (min-width: 768px) {
-    .mvrGrid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrGrid {
-        gap: 28px;
-    }
 }
 
 .mvrCard {
@@ -614,18 +305,6 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-@media (min-width: 768px) {
-    .mvrCard {
-        padding: 32px 26px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .mvrCard {
-        padding: 40px 32px;
-    }
 }
 
 .mvrCard:hover {
@@ -655,18 +334,6 @@
     height: 44px;
 }
 
-@media (min-width: 1440px) {
-    .mvrIconWrap {
-        margin-bottom: 20px;
-        width: 52px;
-        height: 52px;
-    }
-}
-
-.mvrCardAccent .mvrIconWrap {
-    color: var(--white);
-}
-
 .mvrIcon {
     width: 100%;
     height: 100%;
@@ -679,13 +346,6 @@
     margin-bottom: 12px;
 }
 
-@media (min-width: 1440px) {
-    .mvrCardTitle {
-        font-size: 22px;
-        margin-bottom: 14px;
-    }
-}
-
 .mvrDivider {
     width: 40px;
     height: 3px;
@@ -694,22 +354,10 @@
     margin-bottom: 14px;
 }
 
-@media (min-width: 1440px) {
-    .mvrDivider {
-        margin-bottom: 18px;
-    }
-}
-
 .mvrCardText {
     font-size: 14px;
     line-height: 1.75;
     color: #4b5563;
-}
-
-@media (min-width: 1440px) {
-    .mvrCardText {
-        font-size: 15px;
-    }
 }
 
 .newArrivalFab {
@@ -738,26 +386,6 @@
     animation: fabPulse 1.8s ease-in-out infinite;
 }
 
-@media (min-width: 768px) {
-    .newArrivalFab {
-        bottom: 26px;
-        right: 26px;
-        width: 88px;
-        height: 88px;
-        font-size: 12px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .newArrivalFab {
-        bottom: 32px;
-        right: 32px;
-        width: 100px;
-        height: 100px;
-        font-size: 13px;
-    }
-}
-
 @keyframes fabPulse {
 
     0%,
@@ -774,4 +402,268 @@
     animation: none;
     transform: scale(1.15);
     box-shadow: 0 8px 24px rgba(246, 184, 61, 0.6);
+}
+
+.burgerMenu {
+    position: fixed;
+    z-index: 600;
+}
+
+@media (max-width: 767px) {
+    .newProductImageWrap {
+        order: -1;
+    }
+}
+
+@media (min-width: 768px) {
+    .sliderContainer {
+        height: calc(100vh - 90px);
+    }
+
+    .overlay {
+        gap: 18px;
+        padding: 0 7%;
+    }
+
+    .overlay h1 {
+        font-size: 44px;
+    }
+
+    .overlay p {
+        font-size: 26px;
+    }
+
+    .button {
+        font-size: 19px;
+        padding: 14px 28px;
+    }
+
+    .newProductSection {
+        padding: 64px 0 0;
+    }
+
+    .newProductInner {
+        padding: 0 32px;
+    }
+
+    .newProductContent {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .newProductBadge {
+        padding: 12px 28px;
+        margin-bottom: 20px;
+    }
+
+    .newProductBadge span {
+        font-size: 20px;
+    }
+
+    .newProductLabel {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .newProductTitle {
+        font-size: 44px;
+        letter-spacing: -1px;
+        margin-bottom: 16px;
+    }
+
+    .newProductImageWrap {
+        min-height: 320px;
+    }
+
+    .newProductImageBg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .newProductImage {
+        max-width: 280px;
+        max-height: 340px;
+    }
+
+    .mvrSection {
+        padding: 72px 0 0;
+    }
+
+    .mvrInner {
+        padding: 0 32px;
+    }
+
+    .mvrHeader {
+        margin-bottom: 48px;
+    }
+
+    .mvrTagline {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+
+    .mvrTitle {
+        font-size: 32px;
+    }
+
+    .mvrGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+    }
+
+    .mvrCard {
+        padding: 32px 26px;
+    }
+
+    .newArrivalFab {
+        bottom: 26px;
+        right: 26px;
+        width: 88px;
+        height: 88px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .sliderContainer {
+        height: calc(100vh - 112px);
+    }
+
+    .overlay {
+        align-items: flex-start;
+        padding: 0 8%;
+        gap: 20px;
+        text-align: left;
+    }
+
+    .overlay h1 {
+        font-size: 60px;
+    }
+
+    .overlay p {
+        font-size: 35px;
+    }
+
+    .button {
+        font-size: 22px;
+        padding: 15px 30px;
+        margin-top: 8px;
+    }
+
+    .newProductSection {
+        padding: 90px 0 0;
+    }
+
+    .newProductInner {
+        padding: 0 40px;
+    }
+
+    .newProductContent {
+        gap: 70px;
+    }
+
+    .newProductBadge {
+        padding: 14px 32px;
+        margin-bottom: 24px;
+    }
+
+    .newProductBadge span {
+        font-size: 24px;
+    }
+
+    .newProductTitle {
+        font-size: 56px;
+    }
+
+    .newProductDescription {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .newProductSpecs {
+        margin-bottom: 20px;
+    }
+
+    .newProductSpec {
+        font-size: 15px;
+    }
+
+    .newProductComposition {
+        margin-bottom: 28px;
+    }
+
+    .compositionLabel,
+    .compositionText {
+        font-size: 15px;
+    }
+
+    .newProductBtn {
+        font-size: 16px;
+        padding: 14px 32px;
+    }
+
+    .newProductImageWrap {
+        min-height: 420px;
+    }
+
+    .newProductImageBg {
+        width: 380px;
+        height: 380px;
+    }
+
+    .newProductImage {
+        max-width: 340px;
+        max-height: 400px;
+    }
+
+    .mvrSection {
+        padding: 90px 0 0;
+    }
+
+    .mvrInner {
+        padding: 0 40px;
+    }
+
+    .mvrHeader {
+        margin-bottom: 64px;
+    }
+
+    .mvrTitle {
+        font-size: 40px;
+    }
+
+    .mvrGrid {
+        gap: 28px;
+    }
+
+    .mvrCard {
+        padding: 40px 32px;
+    }
+
+    .mvrIconWrap {
+        margin-bottom: 20px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .mvrCardTitle {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .mvrDivider {
+        margin-bottom: 18px;
+    }
+
+    .mvrCardText {
+        font-size: 15px;
+    }
+
+    .newArrivalFab {
+        bottom: 32px;
+        right: 32px;
+        width: 100px;
+        height: 100px;
+        font-size: 13px;
+    }
 }

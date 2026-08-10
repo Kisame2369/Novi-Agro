@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader.jsx";
+import PartOne from "../../components/PartOne/PartOne.jsx";
+import PartTwo from "../../components/PartTwo/PartTwo.jsx";
+import PartThree from "../../components/PartThree/PartThree.jsx";
+import PartFour from "../../components/PartFour/PartFour.jsx";
+import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 
 import css from "./MainPage.module.css";
+
 
 const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID;
 const DATASET = import.meta.env.VITE_SANITY_DATASET;
@@ -59,7 +65,7 @@ export default function MainPage() {
                     </NavLink>
                 </div>
             </div>
-
+            <PartFour />
             {newProductLoading ? (
                 <Loader inline />
             ) : newProduct ? (
@@ -125,7 +131,9 @@ export default function MainPage() {
                     </div>
                 </section>
             ) : null}
-
+            <PartOne />
+            <PartTwo />
+            <PartThree />
             <section className={css.mvrSection}>
                 <div className={css.mvrInner}>
                     <div className={css.mvrHeader}>
@@ -186,6 +194,7 @@ export default function MainPage() {
                     </div>
                 </div>
             </section>
+            <BookingForm />
             {newProduct && (
                 <button
                     className={css.newArrivalFab}

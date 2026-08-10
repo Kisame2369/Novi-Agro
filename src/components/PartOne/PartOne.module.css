@@ -1,0 +1,301 @@
+.aboutOne {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0 0;
+    background-color: #f3f7f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.colImage,
+.colContent {
+    flex: 1 1 45%;
+    min-width: 300px;
+}
+
+.aboutOneImage {
+    position: relative;
+    padding-right: 48px;
+    padding-bottom: 90px;
+}
+
+.bigImage {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+}
+
+.imgPopup {
+    display: contents;
+}
+
+.smImage {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+    width: 60%;
+    max-width: 334px;
+}
+
+.smImage img {
+    width: 100%;
+    border: 8px solid var(--white);
+    border-radius: 12px;
+    display: block;
+}
+
+.shapeTop,
+.shapeBottom {
+    position: absolute;
+    width: 22px;
+    background-color: var(--green);
+    z-index: 2;
+}
+
+.secTitleImg svg {
+    animation: floatArrow 2s ease-in-out infinite;
+}
+
+.shapeTop {
+    background-color: var(--dark-green);
+    height: 138px;
+    top: 0;
+    right: 10px;
+    animation: floatStickTop 4s ease-in-out infinite;
+}
+
+.shapeBottom {
+    height: 163px;
+    bottom: 15px;
+    left: auto;
+    right: 75%;
+    animation: floatStickBottom 4s ease-in-out infinite;
+}
+
+.secTitle {
+    margin-bottom: 24px;
+}
+
+.secTitleImg {
+    display: inline-flex;
+    color: var(--green);
+    margin-right: 4px;
+}
+
+.secTitleTagline {
+    color: var(--green);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.secTitleTitle {
+    margin: 8px 0 0;
+    color: var(--dark-green);
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.15;
+}
+
+.aboutText {
+    font-size: 16px;
+    line-height: 30px;
+    color: #626f62;
+    margin: 0 0 32px;
+}
+
+.qualityWrap {
+    position: relative;
+    background-color: rgba(241, 244, 241, 0.85);
+    border-radius: 4px;
+    padding: 15px 220px 13px 20px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.qualityWrap::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    top: 0;
+    left: -1px;
+    bottom: 0;
+    max-height: 120px;
+    margin: auto 0;
+    background-color: var(--green);
+}
+
+.qualityTitle {
+    color: var(--dark-green);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    margin: 0;
+}
+
+.pricesBox {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 15px 20px;
+}
+
+.priceNumber {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--white);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.priceText {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--white);
+    display: block;
+}
+
+.featureList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.featureList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 28px;
+    color: #626f62;
+    margin-bottom: 8px;
+}
+
+.checkIcon {
+    color: var(--green);
+    font-style: normal;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+@media (max-width: 1440px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutOne {
+        padding: 70px 0 0;
+    }
+
+    .colImage,
+    .colContent {
+        flex: 1 1 100%;
+    }
+
+    .aboutOneImage {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .secTitleTitle {
+        font-size: 32px;
+    }
+
+    .qualityWrap {
+        padding: 15px 20px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pricesBox {
+        position: static;
+        margin-top: 16px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .aboutOne {
+        padding: 50px 0 0;
+    }
+
+    .secTitleTitle {
+        font-size: 26px;
+    }
+
+    .qualityTitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .priceNumber {
+        font-size: 32px;
+    }
+
+    .smImage {
+        width: 80%;
+    }
+}
+
+
+@keyframes floatArrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-6px);
+    }
+}
+
+@keyframes floatStickTop {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(55px);
+    }
+}
+
+@keyframes floatStickBottom {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(30px);
+    }
+}

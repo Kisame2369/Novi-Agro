@@ -1,0 +1,269 @@
+.bookingSection {
+    position: relative;
+    background-color: #f3f7f4;
+    padding: 50px 0;
+    overflow: hidden;
+}
+
+.containerFluid {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.left,
+.right {
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    max-width: 100%;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.secTitle {
+    margin-bottom: 24px;
+}
+
+.secTitleIcon {
+    display: inline-flex;
+    align-items: center;
+    color: var(--green, #28a745);
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.secTitleIcon svg {
+    fill: currentColor;
+    animation: floatArrow 2s ease-in-out infinite;
+}
+
+.tagline {
+    display: inline-block;
+    vertical-align: middle;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green, #28a745);
+}
+
+.title {
+    margin: 12px 0 0;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.2;
+    color: var(--dark-green, #155d27);
+}
+
+.text {
+    font-size: 15px;
+    line-height: 26px;
+    color: #626f62;
+    margin: 0 0 30px;
+}
+
+.imageWrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.bigImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Honeypot {
+    display: none;
+}
+
+.FormRow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.Label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark-green, #155d27);
+}
+
+.Input,
+.Textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e1e8e3;
+    border-radius: 8px;
+    background-color: #f9fbf9;
+    font-size: 15px;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+.Input:focus,
+.Textarea:focus {
+    outline: none;
+    border-color: var(--green, #28a745);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+}
+
+.Textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn {
+    display: inline-block;
+    color: var(--white, #fff);
+    background-color: var(--green, #28a745);
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+.btn:hover:not(:disabled) {
+    background-color: var(--dark-green, #155d27);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(21, 93, 39, 0.2);
+}
+
+.btn:disabled {
+    background-color: #a3c9a8;
+    cursor: not-allowed;
+}
+
+.SuccessMessage {
+    color: #155724;
+    background-color: #d4edda;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ErrorMessage {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .bookingSection {
+        padding: 70px 0;
+    }
+
+    .row {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left,
+    .right {
+        width: 50%;
+    }
+
+    .content {
+        padding: 40px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .FormRow {
+        flex-direction: row;
+    }
+
+    .imageWrap {
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bookingSection {
+        padding: 90px 0;
+    }
+
+    .row {
+        gap: 0;
+    }
+
+    .content {
+        max-width: 620px;
+        margin-left: auto;
+        padding: 50px;
+        margin-right: 40px;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .imageWrap {
+        padding-left: 40px;
+    }
+}
+
+@keyframes floatArrow {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-6px);
+    }
+}

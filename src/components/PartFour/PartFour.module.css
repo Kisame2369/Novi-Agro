@@ -1,0 +1,172 @@
+.Container {
+    position: relative;
+    z-index: 2;
+    background-color: var(--light-green);
+    padding: 20px 0 30px;
+}
+
+.Row {
+    max-width: 1770px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 0;
+}
+
+.Item {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+}
+
+.Content {
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.Title {
+    color: var(--dark-green);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 8px;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.Text {
+    color: var(--black);
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.IconWrap {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    border: 1px solid var(--dark-green);
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    transition: all 0.5s ease;
+}
+
+.Icon {
+    color: var(--dark-green);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.Item:hover .IconWrap {
+    background-color: var(--dark-green);
+}
+
+.Item:hover .Icon {
+    transform: scale(0.9);
+    color: var(--white);
+}
+
+@media (min-width: 768px) {
+    .Container {
+        padding: 40px 0 45px;
+    }
+
+    .Row {
+        padding: 0 20px;
+        gap: 30px 0;
+    }
+
+    .Item {
+        width: 50%;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        padding: 25px 20px;
+    }
+
+    .Content {
+        padding-right: 20px;
+        justify-content: flex-start;
+    }
+
+    .Title {
+        text-align: left;
+        font-size: 20px;
+        line-height: 28px;
+        min-height: 56px;
+        
+    }
+
+    .Text {
+        text-align: left;
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+    .IconWrap {
+        width: 90px;
+        min-width: 90px;
+        height: 90px;
+        margin-bottom: 0;
+    }
+
+    .Icon {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .Container {
+        padding: 9px 0 39px;
+    }
+
+    .Item {
+        width: 25%;
+        padding: 30px 20px;
+    }
+
+    .Content {
+        padding-right: 29px;
+    }
+
+    .Title {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 9px;
+        min-height: 64px;
+    }
+
+    .Text {
+        font-size: 15px;
+        line-height: 28px;
+    }
+
+    .IconWrap {
+        width: 102px;
+        min-width: 102px;
+        height: 102px;
+    }
+
+    .Icon {
+        width: 52px;
+        height: 52px;
+    }
+}
