@@ -1,8 +1,5 @@
 import css from "./PartOne.module.css";
 
-import aboutMain from "../../assets/about_main.png";
-import aboutThumbnail from "../../assets/about_thumbnail.png";
-
 const features = [
   "Feed Additives at its best",
   "Professional consultancy service for all your farming business",
@@ -23,14 +20,14 @@ export default function PartOne() {
                 <img
                   loading="lazy"
                   className={css.bigImage}
-                  src={aboutMain}
+                  src="/images/about_main.webp"
                   alt="Novi Agro Nig. Ltd"
                 />
               </div>
 
               <div className={css.smImage}>
                 <div className={css.imgPopup}>
-                  <img loading="lazy" src={aboutThumbnail} alt="Novi Agro Nig. Ltd" />
+                  <img loading="lazy" src="/images/about_thumbnail.webp" alt="Novi Agro Nig. Ltd" />
                 </div>
               </div>
 

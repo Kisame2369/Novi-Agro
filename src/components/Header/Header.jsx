@@ -40,6 +40,9 @@ export default function Header() {
                             <NavLink to="/products" end onClick={closeMenu} className={({ isActive }) => isActive ? `${css.link} ${css.active}` : css.link}>
                                 Products
                             </NavLink>
+                            <NavLink to="/services" end onClick={closeMenu} className={({ isActive }) => isActive ? `${css.link} ${css.active}` : css.link}>
+                                Services
+                            </NavLink>
                         </div>
 
                         <div className={css.navRight}>

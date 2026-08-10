@@ -49,8 +49,7 @@ export default function MainPage() {
             <div className={css.sliderContainer}>
                 <video
                     className={css.heroVideo}
-                    src="/videos/hero.mp4"
-                    poster="/videos/hero.webp"
+                    src="/videos/top.mp4"
                     autoPlay
                     loop
                     muted

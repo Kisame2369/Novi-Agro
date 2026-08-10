@@ -97,13 +97,13 @@ export default function PartTwo() {
               <img
                 loading="lazy"
                 className={css.bigImage}
-                src="/images/benefits_hero.png"
+                src="/images/benefits_hero.webp"
                 alt="Success in Farming"
               />
               <div className={css.smImage}>
                 <img
                   loading="lazy"
-                  src="/images/benefits_thumb.png"
+                  src="/images/benefits_thumb.webp"
                   alt="Modern Infrastructure"
                 />
               </div>

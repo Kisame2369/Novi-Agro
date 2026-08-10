@@ -35,8 +35,8 @@ const offices = [
         region: "South West",
         city: "Ibadan, Oyo State",
         address: "Km 10, Old Lagos Road, New Garage, PODO, Ibadan, Oyo State",
-        mapUrl: getMapUrl("New Garage, PODO, Ibadan, Oyo State"),
-        mapSrc: getEmbedSrc("New Garage, PODO, Ibadan, Oyo State"),
+        mapUrl: "https://maps.app.goo.gl/yBwtZmSqiU578F8M8",
+        mapSrc: getEmbedSrc("Novi agro, Ibadan, Oyo State"), 
         color: "#007934",
     },
     {

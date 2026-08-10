@@ -1,0 +1,169 @@
+.Section {
+    padding: 40px 0;
+    background-color: var(--light-green);
+}
+
+.Container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.Header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.MainTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.SubTitle {
+    font-size: 15px;
+    color: var(--black);
+    opacity: 0.7;
+    margin: 0;
+}
+
+.Row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+}
+
+.Col {
+    width: 100%;
+}
+
+.Card {
+    background: var(--white);
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.ImgWrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.Img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Body {
+    padding: 24px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.Tagline {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+}
+
+.Title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.Text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--black);
+    opacity: 0.8;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .Section {
+        padding: 60px 0;
+    }
+
+    .Header {
+        margin-bottom: 40px;
+    }
+
+    .MainTitle {
+        font-size: 34px;
+    }
+
+    .SubTitle {
+        font-size: 16px;
+    }
+
+    .Row {
+        gap: 30px;
+    }
+
+    .Col {
+        width: calc(50% - 15px);
+    }
+
+    .ImgWrap {
+        height: 220px;
+    }
+
+    .Body {
+        padding: 30px 24px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .Section {
+        padding: 80px 0 90px;
+    }
+
+    .Header {
+        margin-bottom: 50px;
+    }
+
+    .MainTitle {
+        font-size: 40px;
+    }
+
+    .Col {
+        width: calc(33.333% - 20px);
+    }
+
+    .Body {
+        padding: 34px 28px 24px;
+    }
+
+    .Title {
+        font-size: 22px;
+    }
+
+    .Text {
+        font-size: 15px;
+    }
+}

@@ -195,7 +195,7 @@ export default function BookingForm() {
               <img
                 loading="lazy"
                 className={css.bigImage}
-                src="/images/booking_vet1.png" 
+                src="/images/booking_vet1.webp" 
                 alt="Farming consultation"
               />
             </div>
