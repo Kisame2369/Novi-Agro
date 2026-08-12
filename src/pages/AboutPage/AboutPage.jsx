@@ -1,3 +1,4 @@
+import Our from "../../components/Our/Our";
 import css from "./AboutPage.module.css";
 
 export default function AboutPage() {
@@ -62,6 +63,8 @@ export default function AboutPage() {
                 </section>
             </div>
 
+            <Our />
+
             <div className={css.section}>
                 <h2 className={css.sectionTitle}>Our Journey</h2>
                 <p className={css.text}>
@@ -108,21 +111,13 @@ export default function AboutPage() {
 
             <div className={css.section}>
                 <h2 className={css.sectionTitle}>Product History</h2>
-                <div className={css.productGrid}>
+                <div className={css.productBlock}>
                     {productHistory.map((period, index) => (
-                        <div key={index} className={css.productCard}>
-                            <div className={css.periodHeader}>
-                                <span className={css.periodYear}>{period.period}</span>
-                                <h3 className={css.periodTitle}>{period.title}</h3>
-                            </div>
-                            <ul className={css.productList}>
-                                {period.products.map((product, i) => (
-                                    <li key={i} className={css.productItem}>
-                                        • {product}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <p key={index} className={css.periodRow}>
+                            <span className={css.periodYear}>{period.period}</span>{" "}
+                            <span className={css.periodTitle}>{period.title}</span>{": "}
+                            {period.products.join(", ")}
+                        </p>
                     ))}
                 </div>
             </div>

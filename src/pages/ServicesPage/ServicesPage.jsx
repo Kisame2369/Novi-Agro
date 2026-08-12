@@ -1,5 +1,6 @@
 import React from 'react';
 import css from "./ServicesPage.module.css";
+import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 
 const SERVICES = [
   {
@@ -41,6 +42,7 @@ const SERVICES = [
 
 export default function ServicesPage() {
   return (
+    <>
     <section className={css.Section}>
       <div className={css.Container}>
         <div className={css.Header}>
@@ -72,6 +74,8 @@ export default function ServicesPage() {
           ))}
         </div>
       </div>
-    </section>
+      </section>
+      <BookingForm />
+    </>
   );
 }

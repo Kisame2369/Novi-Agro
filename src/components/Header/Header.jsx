@@ -49,6 +49,9 @@ export default function Header() {
                             <NavLink to="/events" end onClick={closeMenu} className={({ isActive }) => isActive ? `${css.link} ${css.active}` : css.link}>
                                 Events
                             </NavLink>
+                             <NavLink to="/blog" end onClick={closeMenu} className={({ isActive }) => isActive ? `${css.link} ${css.active}` : css.link}>
+                                Blog
+                            </NavLink>
                             <NavLink to="/contacts" end onClick={closeMenu} className={({ isActive }) => isActive ? `${css.link} ${css.active}` : css.link}>
                                 Contacts
                             </NavLink>

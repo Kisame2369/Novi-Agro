@@ -244,122 +244,6 @@
     transform: translateY(-8px) scale(1.03);
 }
 
-.mvrSection {
-    background-color: #f3f7f4;
-    padding: 56px 0 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.mvrSection::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: var(--white);
-    clip-path: ellipse(55% 100% at 50% 0%);
-}
-
-.mvrInner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.mvrHeader {
-    text-align: center;
-    margin-bottom: 36px;
-}
-
-.mvrTagline {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--green);
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    margin-bottom: 10px;
-}
-
-.mvrTitle {
-    font-size: 26px;
-    font-weight: 800;
-    color: var(--black);
-    line-height: 1.15;
-}
-
-.mvrGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-}
-
-.mvrCard {
-    background-color: var(--white);
-    border-radius: 20px;
-    padding: 28px 22px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.mvrCard:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-}
-
-.mvrCardAccent {
-    background-color: var(--green);
-    border-color: var(--green);
-}
-
-.mvrCardAccent .mvrCardTitle,
-.mvrCardAccent .mvrCardText,
-.mvrCardAccent .mvrIconWrap {
-    color: var(--white);
-}
-
-.mvrCardAccent .mvrDivider {
-    background-color: rgba(255, 255, 255, 0.35);
-}
-
-.mvrIconWrap {
-    color: var(--green);
-    margin-bottom: 16px;
-    width: 44px;
-    height: 44px;
-}
-
-.mvrIcon {
-    width: 100%;
-    height: 100%;
-}
-
-.mvrCardTitle {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--black);
-    margin-bottom: 12px;
-}
-
-.mvrDivider {
-    width: 40px;
-    height: 3px;
-    background-color: var(--dark-yellow);
-    border-radius: 2px;
-    margin-bottom: 14px;
-}
-
-.mvrCardText {
-    font-size: 14px;
-    line-height: 1.75;
-    color: #4b5563;
-}
-
 .newArrivalFab {
     position: fixed;
     bottom: 20px;
@@ -487,36 +371,6 @@
         max-height: 340px;
     }
 
-    .mvrSection {
-        padding: 72px 0 0;
-    }
-
-    .mvrInner {
-        padding: 0 32px;
-    }
-
-    .mvrHeader {
-        margin-bottom: 48px;
-    }
-
-    .mvrTagline {
-        font-size: 13px;
-        margin-bottom: 12px;
-    }
-
-    .mvrTitle {
-        font-size: 32px;
-    }
-
-    .mvrGrid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
-
-    .mvrCard {
-        padding: 32px 26px;
-    }
-
     .newArrivalFab {
         bottom: 26px;
         right: 26px;
@@ -620,49 +474,6 @@
     .newProductImage {
         max-width: 340px;
         max-height: 400px;
-    }
-
-    .mvrSection {
-        padding: 90px 0 0;
-    }
-
-    .mvrInner {
-        padding: 0 40px;
-    }
-
-    .mvrHeader {
-        margin-bottom: 64px;
-    }
-
-    .mvrTitle {
-        font-size: 40px;
-    }
-
-    .mvrGrid {
-        gap: 28px;
-    }
-
-    .mvrCard {
-        padding: 40px 32px;
-    }
-
-    .mvrIconWrap {
-        margin-bottom: 20px;
-        width: 52px;
-        height: 52px;
-    }
-
-    .mvrCardTitle {
-        font-size: 22px;
-        margin-bottom: 14px;
-    }
-
-    .mvrDivider {
-        margin-bottom: 18px;
-    }
-
-    .mvrCardText {
-        font-size: 15px;
     }
 
     .newArrivalFab {

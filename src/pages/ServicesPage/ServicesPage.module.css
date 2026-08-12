@@ -61,7 +61,7 @@
 .ImgWrap {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 255px;
     overflow: hidden;
 }
 
@@ -130,7 +130,7 @@
     }
 
     .ImgWrap {
-        height: 220px;
+        height: 275px;
     }
 
     .Body {

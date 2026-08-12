@@ -11,6 +11,7 @@ const ContactsPage = lazy(() => import("../../pages/ContactsPage/ContactsPage.js
 const Footer = lazy(() => import("../Footer/Footer.jsx"));
 const EventsPage = lazy(() => import("../../pages/EventsPage/EventsPage.jsx"));
 const ServicesPage = lazy(() => import("../../pages/ServicesPage/ServicesPage.jsx"));
+const BlogPage = lazy(() => import("../../pages/BlogPage/BlogPage.jsx"));
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                 <Route path="/contacts" element={<ContactsPage />} />
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/blog" element={<BlogPage />} />
             </Routes>
             <Footer />
         </Suspense>
