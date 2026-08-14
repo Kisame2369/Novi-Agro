@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import BlogPost from "../../components/BlogPost/BlogPost.jsx";
 import css from "./BlogPage.module.css";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID;
 const DATASET = import.meta.env.VITE_SANITY_DATASET;
@@ -68,7 +69,7 @@ export default function BlogPage() {
 
     <div className={css.postsContainer}>
       {isLoading ? (
-        <h2 className={css.noPosts}>Loading...</h2>
+        <Loader/>
       ) : posts.length > 0 ? (
         posts.map((post) => (
           <BlogPost key={post._id} post={post} />
