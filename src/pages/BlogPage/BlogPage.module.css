@@ -1,3 +1,106 @@
-.title{
-    color: black;
+.blogPageWrapper {
+    min-height: 100vh;
+    padding-bottom: 90px;
+    background-color: #f4f6f4;
 }
+
+.pageHeader {
+    text-align: center;
+    padding: 70px 15px 50px;
+}
+
+.pageTitle {
+    color: var(--dark-green, #1a4d2e);
+    font-weight: 700;
+    font-size: 42px;
+    margin: 0 0 12px;
+}
+
+.pageSubtitle {
+    color: #626f62;
+    font-size: 17px;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.postsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    /* Делаем чуть шире (было 860) */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.noPosts {
+    text-align: center;
+    color: var(--dark-green, #1a4d2e);
+    padding: 90px 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 60px;
+    padding: 0 15px;
+}
+
+.pageBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    padding: 12px 0;
+    background-color: var(--green, #28a745);
+    color: var(--white, #ffffff);
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pageBtn:hover:not(.disabled) {
+    background-color: var(--dark-green, #1a4d2e);
+    transform: translateY(-2px);
+}
+
+.pageBtn.disabled {
+    background-color: #cccccc;
+    color: #888888;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pageInfo {
+    font-weight: 600;
+    font-size: 16px;
+    color: #626f62;
+}
+
+@media (max-width: 480px) {
+    .pageTitle {
+        font-size: 28px;
+    }
+
+    .pagination {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .pageBtn {
+        width: auto;
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1;
+    }
+
+    .pageInfo {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+}
+

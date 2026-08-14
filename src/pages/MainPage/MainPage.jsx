@@ -49,6 +49,7 @@ export default function MainPage() {
                 <video
                     className={css.heroVideo}
                     src="/videos/top.mp4"
+                    poster="/videos/top.webp"
                     autoPlay
                     loop
                     muted
