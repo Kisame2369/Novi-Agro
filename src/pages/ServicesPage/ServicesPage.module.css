@@ -166,4 +166,8 @@
     .Text {
         font-size: 15px;
     }
+
+    .ImgWrap {
+        height: 100%;
+    }
 }

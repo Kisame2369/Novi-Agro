@@ -41,24 +41,6 @@ export default function Our() {
                             improved livestock performance.
                         </p>
                     </div>
-
-                    <div className={css.mvrCard}>
-                        <div className={css.mvrIconWrap}>
-                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className={css.mvrIcon}>
-                                <path d="M8 36 L16 24 L24 30 L32 16 L40 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                                <circle cx="40" cy="20" r="3" fill="currentColor" />
-                                <path d="M8 40 L40 40" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-                            </svg>
-                        </div>
-                        <div className={css.mvrCardHeader}>
-                            <h3 className={css.mvrCardTitle}>Our Results</h3>
-                        </div>
-                        <p className={css.mvrCardText}>
-                            Through dedication and innovation, we help farmers improve animal performance,
-                            reduce production costs, and achieve measurable success in poultry, cattle,
-                            swine, goats, sheep, and fish farming.
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
