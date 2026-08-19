@@ -74,7 +74,7 @@
 
 .newProductSection {
     background: linear-gradient(135deg, #f9fafb 0%, #f0f7f2 100%);
-    padding: 48px 0 0;
+    padding: 50px 0;
     overflow: hidden;
 }
 
@@ -325,7 +325,7 @@
     }
 
     .newProductSection {
-        padding: 64px 0 0;
+        padding: 70px 0 ;
     }
 
     .newProductInner {
@@ -411,7 +411,7 @@
     }
 
     .newProductSection {
-        padding: 90px 0 0;
+        padding: 90px 0;
     }
 
     .newProductInner {

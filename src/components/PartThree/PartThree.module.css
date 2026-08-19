@@ -1,7 +1,7 @@
 .funfact {
     position: relative;
     background-color: #f3f7f4;
-    padding: 50px 0;
+    padding: 50px 0 0;
     overflow: hidden;
 }
 
@@ -204,7 +204,7 @@
 
 @media (min-width: 768px) {
     .funfact {
-        padding: 70px 0;
+        padding: 70px 0 0;
     }
 
     .row {
@@ -265,7 +265,7 @@
 
 @media (min-width: 1440px) {
     .funfact {
-        padding: 90px 0;
+        padding: 90px 0 0;
     }
 
     .containerFluid {

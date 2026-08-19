@@ -1,6 +1,7 @@
 import React from 'react';
 import css from "./ServicesPage.module.css";
 import BookingForm from "../../components/BookingForm/BookingForm.jsx";
+import PartFour from "../../components/PartFour/PartFour.jsx";
 
 const SERVICES = [
   {
@@ -75,6 +76,7 @@ export default function ServicesPage() {
         </div>
       </div>
       </section>
+      <PartFour />
       <BookingForm />
     </>
   );

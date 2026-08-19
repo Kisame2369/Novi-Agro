@@ -230,10 +230,16 @@
         margin-bottom: 44px;
     }
 
-    .officesGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+   .officesGrid {
+       grid-template-columns: repeat(2, 1fr);
+       gap: 20px;
+   }
+
+   .officeCard:last-child {
+       grid-column: 1 / -1;
+       justify-self: center;
+       width: calc(50% - 10px);
+   }
 
     .officeMap {
         height: 200px;
@@ -276,6 +282,12 @@
     .officesGrid {
         grid-template-columns: repeat(3, 1fr);
         gap: 24px;
+    }
+
+    .officeCard:last-child {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
     }
 
     .officeTag {

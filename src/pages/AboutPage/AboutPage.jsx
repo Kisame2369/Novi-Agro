@@ -16,7 +16,7 @@ export default function AboutPage() {
         { year: "2023", count: 250 },
         { year: "2024", count: 400 },
         { year: "2025", count: 650 },
-        { year: "2026", count: 700 }
+        { year: "2026", count: 2000 }
     ];
 
     const productHistory = [
@@ -97,7 +97,7 @@ export default function AboutPage() {
                             <div className={css.chartBarArea}>
                                 <div
                                     className={css.chartBar}
-                                    style={{ width: `${(item.count / maxCustomers) * 100}%` }}
+                                    style={{ width: `${(item.count / maxCustomers) * 34}%` }}
                                 >
                                     <span className={css.barValue}>
                                         {item.year === "2026" ? "Over " + item.count : item.count}

@@ -2,7 +2,7 @@
     position: relative;
     z-index: 2;
     background-color: var(--light-green);
-    padding: 20px 0 30px;
+    padding: 0 0 30px;
 }
 
 .Row {
@@ -85,7 +85,7 @@
 
 @media (min-width: 768px) {
     .Container {
-        padding: 40px 0 45px;
+        padding: 0 0 60px;
     }
 
     .Row {
@@ -135,7 +135,7 @@
 
 @media (min-width: 1440px) {
     .Container {
-        padding: 20px 0 0px;
+        padding: 0 0 60px;
     }
 
     .Item {

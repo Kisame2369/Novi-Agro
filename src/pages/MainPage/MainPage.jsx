@@ -4,7 +4,6 @@ import Loader from "../../components/Loader/Loader.jsx";
 import PartOne from "../../components/PartOne/PartOne.jsx";
 import PartTwo from "../../components/PartTwo/PartTwo.jsx";
 import PartThree from "../../components/PartThree/PartThree.jsx";
-import PartFour from "../../components/PartFour/PartFour.jsx";
 
 import css from "./MainPage.module.css";
 
@@ -64,7 +63,9 @@ export default function MainPage() {
                     </NavLink>
                 </div>
             </div>
-            <PartFour />
+            <PartOne />
+            <PartTwo />
+            <PartThree />  
             {newProductLoading ? (
                 <Loader inline />
             ) : newProduct ? (
@@ -129,10 +130,7 @@ export default function MainPage() {
                         </div>
                     </div>
                 </section>
-            ) : null}
-            <PartOne />
-            <PartTwo />
-            <PartThree />            
+            ) : null}          
             {newProduct && (
                 <button
                     className={css.newArrivalFab}
