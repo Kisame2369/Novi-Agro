@@ -216,43 +216,61 @@
     text-decoration: underline;
 }
 
+/* Tablet (от 768px): Карты 3 в ряд (компактные), контакты в ряд по 260px */
 @media (min-width: 768px) {
     .content {
-        padding: 48px 32px 72px;
+        padding: 40px 20px 60px;
     }
 
     .sectionTitle {
-        font-size: 28px;
-        margin: 0 0 32px;
+        font-size: 26px;
+        margin: 0 0 28px;
     }
 
     .officesSection {
-        margin-bottom: 44px;
+        margin-bottom: 40px;
     }
 
-   .officesGrid {
-       grid-template-columns: repeat(2, 1fr);
-       gap: 20px;
-   }
+    /* Карты офисов: 3 в ряд */
+    .officesGrid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
 
-   .officeCard:last-child {
-       grid-column: 1 / -1;
-       justify-self: center;
-       width: calc(50% - 10px);
-   }
+    .officeCard:last-child {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+    }
 
     .officeMap {
-        height: 200px;
+        height: 140px;
+    }
+
+    .officeTag {
+        padding: 6px 12px;
+        font-size: 10px;
     }
 
     .officeBody {
-        padding: 18px 20px 22px;
+        padding: 12px 14px 16px;
+        gap: 8px;
     }
 
     .officeCity {
-        font-size: 17px;
+        font-size: 15px;
     }
 
+    .officeAddress {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .officeLink {
+        font-size: 12px;
+    }
+
+    /* Контакты: оригинальный вид (в ряд с фиксированной шириной 260px) */
     .detailsGrid {
         flex-direction: row;
         flex-wrap: wrap;
@@ -261,11 +279,28 @@
     }
 
     .detailCard {
-        width: calc(50% - 10px);
+        width: 260px;
+        padding: 24px 20px;
+        gap: 12px;
+    }
+
+    .detailIcon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+    }
+
+    .detailTitle {
+        font-size: 15px;
+    }
+
+    .detailLink {
+        font-size: 14px;
     }
 }
 
-@media (min-width: 1440px) {
+/* Desktop (от 1200px / 1440px) */
+@media (min-width: 1200px) {
     .content {
         padding: 56px 32px 80px;
     }
@@ -280,14 +315,7 @@
     }
 
     .officesGrid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
-    }
-
-    .officeCard:last-child {
-        grid-column: auto;
-        justify-self: stretch;
-        width: auto;
     }
 
     .officeTag {
@@ -301,10 +329,23 @@
 
     .officeBody {
         padding: 20px 22px 24px;
+        gap: 10px;
     }
 
     .officeCity {
         font-size: 17px;
+    }
+
+    .officeAddress {
+        font-size: 14px;
+    }
+
+    .officeLink {
+        font-size: 14px;
+    }
+
+    .detailsGrid {
+        gap: 24px;
     }
 
     .detailCard {
@@ -320,5 +361,9 @@
 
     .detailTitle {
         font-size: 16px;
+    }
+
+    .detailLink {
+        font-size: 14px;
     }
 }
