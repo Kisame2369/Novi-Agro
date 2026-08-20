@@ -27,7 +27,7 @@
 .content {
     position: relative;
     max-width: 100%;
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 30px 20px;
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
@@ -40,7 +40,7 @@
 .secTitleIcon {
     display: inline-flex;
     align-items: center;
-    color: var(--green, #28a745);
+    color: var(--green);
     margin-right: 6px;
     vertical-align: middle;
 }
@@ -57,7 +57,7 @@
     font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--green, #28a745);
+    color: var(--green);
 }
 
 .title {
@@ -65,7 +65,7 @@
     font-weight: 700;
     font-size: 26px;
     line-height: 1.2;
-    color: var(--dark-green, #155d27);
+    color: var(--dark-green);
 }
 
 .text {
@@ -117,7 +117,7 @@
 .Label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--dark-green, #155d27);
+    color: var(--dark-green);
 }
 
 .Input,
@@ -136,8 +136,8 @@
 .Input:focus,
 .Textarea:focus {
     outline: none;
-    border-color: var(--green, #28a745);
-    background-color: #ffffff;
+    border-color: var(--green);
+    background-color: var(--white);
     box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
 }
 
@@ -148,8 +148,8 @@
 
 .btn {
     display: inline-block;
-    color: var(--white, #fff);
-    background-color: var(--green, #28a745);
+    color: var(--white);
+    background-color: var(--green,);
     border: none;
     border-radius: 30px;
     padding: 14px 28px;
@@ -163,7 +163,7 @@
 }
 
 .btn:hover:not(:disabled) {
-    background-color: var(--dark-green, #155d27);
+    background-color: var(--dark-green);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(21, 93, 39, 0.2);
 }

@@ -1,70 +1,161 @@
 .blogPageWrapper {
     min-height: 100vh;
-    padding-bottom: 90px;
+    padding-bottom: 60px;
     background-color: #f4f6f4;
 }
 
 .pageHeader {
     text-align: center;
-    padding: 70px 15px 50px;
+    padding: 40px 16px 30px;
 }
 
 .pageTitle {
-    color: var(--dark-green, #1a4d2e);
+    color: var(--dark-green);
     font-weight: 700;
-    font-size: 42px;
-    margin: 0 0 12px;
+    font-size: 28px;
+    margin: 0 0 10px;
 }
 
 .pageSubtitle {
     color: #626f62;
-    font-size: 17px;
-    max-width: 560px;
+    font-size: 15px;
+    max-width: 100%;
     margin: 0 auto;
+}
+
+.contentLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
 }
 
 .postsContainer {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    max-width: 1000px;
-    /* Делаем чуть шире (было 860) */
-    margin: 0 auto;
-    padding: 0 15px;
+    gap: 24px;
+    width: 100%;
 }
 
 .noPosts {
     text-align: center;
-    color: var(--dark-green, #1a4d2e);
-    padding: 90px 0;
+    color: var(--dark-green);
+    padding: 50px 0;
+    font-size: 18px;
+}
+
+.sidebar {
+    display: none;
+}
+
+.authorCard {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e7ece7;
+}
+
+.authorSectionTitle {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--dark-green);
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0ece0;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+}
+
+.authorPhoto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    background-color: #e2e8f0;
+}
+
+.authorName {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+
+.authorRole {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--green);
+    margin: 0 0 12px;
+}
+
+.authorContacts {
+    font-size: 13px;
+    color: #4a5568;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.authorContacts a {
+    color: var(--dark-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.authorBio {
+    font-size: 13px;
+    line-height: 1.55;
+    color: #4a5568;
+    margin: 0 0 10px;
+}
+
+.authorBio:last-child {
+    margin-bottom: 0;
 }
 
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 24px;
-    margin-top: 60px;
-    padding: 0 15px;
+    gap: 8px;
+    margin-top: 40px;
 }
 
 .pageBtn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 160px;
-    padding: 12px 0;
-    background-color: var(--green, #28a745);
-    color: var(--white, #ffffff);
+    flex: 1;
+    max-width: 140px;
+    padding: 8px 12px;
+    background-color: var(--green);
+    color: var(--white);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
     border-radius: 30px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .pageBtn:hover:not(.disabled) {
-    background-color: var(--dark-green, #1a4d2e);
+    background-color: var(--dark-green);
     transform: translateY(-2px);
 }
 
@@ -77,30 +168,159 @@
 
 .pageInfo {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
     color: #626f62;
+    white-space: nowrap;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 768px) {
+    .blogPageWrapper {
+        padding-bottom: 80px;
+    }
+
+    .pageHeader {
+        padding: 60px 24px 40px;
+    }
+
     .pageTitle {
-        font-size: 28px;
+        font-size: 36px;
+    }
+
+    .pageSubtitle {
+        font-size: 16px;
+        max-width: 540px;
+    }
+
+    .contentLayout {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 24px;
+        padding: 0 24px;
+        max-width: 100%;
+        align-items: start;
+    }
+
+    .sidebar {
+        display: block;
+        width: 100%;
+    }
+
+    .postsContainer {
+        gap: 32px;
+    }
+
+    .authorCard {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .authorSectionTitle {
+        font-size: 20px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+    }
+
+    .authorPhoto {
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+
+    .authorName {
+        font-size: 17px;
+    }
+
+    .authorBio {
+        font-size: 12.5px;
+        line-height: 1.5;
     }
 
     .pagination {
-        flex-direction: row;
-        gap: 8px;
+        gap: 16px;
+        margin-top: 50px;
     }
 
     .pageBtn {
-        width: auto;
-        padding: 8px 12px;
-        font-size: 13px;
-        flex: 1;
+        flex: initial;
+        width: 150px;
+        padding: 10px 0;
+        font-size: 15px;
     }
 
     .pageInfo {
-        font-size: 13px;
-        white-space: nowrap;
+        font-size: 15px;
     }
 }
 
+@media (min-width: 1440px) {
+    .blogPageWrapper {
+        padding-bottom: 100px;
+    }
+
+    .pageHeader {
+        padding: 70px 20px 50px;
+    }
+
+    .pageTitle {
+        font-size: 42px;
+    }
+
+    .pageSubtitle {
+        font-size: 17px;
+        max-width: 600px;
+    }
+
+    .contentLayout {
+        grid-template-columns: 1fr 360px;
+        gap: 48px;
+        max-width: 1360px;
+        padding: 0 40px;
+    }
+
+    .authorCard {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    .authorSectionTitle {
+        font-size: 26px;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+    }
+
+    .authorPhoto {
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+
+    .authorName {
+        font-size: 20px;
+    }
+
+    .authorRole {
+        font-size: 14px;
+    }
+
+    .authorBio {
+        font-size: 13.5px;
+        line-height: 1.6;
+    }
+
+    .postsContainer {
+        gap: 40px;
+    }
+
+    .pagination {
+        gap: 24px;
+        margin-top: 60px;
+    }
+
+    .pageBtn {
+        width: 160px;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+
+    .pageInfo {
+        font-size: 16px;
+    }
+}

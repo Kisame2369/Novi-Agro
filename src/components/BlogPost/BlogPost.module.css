@@ -2,7 +2,7 @@
     position: relative;
     padding: 32px;
     margin: 0;
-    background-color: var(--white, #ffffff);
+    background-color: var(--white);
     border-radius: 12px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
@@ -27,7 +27,7 @@
 
 .blogTitle {
     margin: 0 0 8px;
-    color: var(--dark-green, #1a4d2e);
+    color: var(--dark-green);
     font-weight: 700;
     font-size: 32px;
     line-height: 1.2;
@@ -35,7 +35,7 @@
 
 .dateTagline {
     display: block;
-    color: var(--green, #28a745);
+    color: var(--green);
     font-weight: 600;
     font-size: 14px;
     line-height: 18px;
@@ -57,18 +57,36 @@
 
 .blogText h2,
 .blogText h3 {
-    color: var(--dark-green, #1a4d2e);
+    color: var(--dark-green);
     margin-top: 32px;
     margin-bottom: 16px;
 }
 
-.blogText ul {
+.blogText ol {
     margin-bottom: 20px;
-    padding-left: 20px;
+    padding-left: 28px;
 }
 
-.blogText li {
+.blogText ol>li {
+    list-style-type: decimal !important;
     margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.blogText ul {
+    margin-bottom: 20px;
+    padding-left: 28px;
+}
+
+.blogText ul>li {
+    list-style-type: disc !important;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.blogText li::marker {
+    color: var(--green);
+    font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -94,4 +112,3 @@
         font-size: 12px;
     }
 }
-

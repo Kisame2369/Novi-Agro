@@ -58,50 +58,89 @@ export default function BlogPage() {
     fetchData();
   }, []);
 
-   return (
-  <main className={css.blogPageWrapper}>
-    <div className={css.pageHeader}>
-      <h1 className={css.pageTitle}>Blog</h1>
-      <p className={css.pageSubtitle}>
-        News, articles and useful materials
-      </p>
-    </div>
-
-    <div className={css.postsContainer}>
-      {isLoading ? (
-        <Loader/>
-      ) : posts.length > 0 ? (
-        posts.map((post) => (
-          <BlogPost key={post._id} post={post} />
-        ))
-      ) : (
-        <h2 className={css.noPosts}>No posts available.</h2>
-      )}
-    </div>
-
-    {!isLoading && totalPages > 1 && (
-      <div className={css.pagination}>
-        {currentPage > 1 ? (
-          <a href={`?page=${currentPage - 1}`} className={css.pageBtn}>
-            Previous
-          </a>
-        ) : (
-          <span className={`${css.pageBtn} ${css.disabled}`}>Previous</span>
-        )}
-
-        <span className={css.pageInfo}>
-          Page {currentPage} of {totalPages}
-        </span>
-
-        {currentPage < totalPages ? (
-          <a href={`?page=${currentPage + 1}`} className={css.pageBtn}>
-            Next
-          </a>
-        ) : (
-          <span className={`${css.pageBtn} ${css.disabled}`}>Next</span>
-        )}
+  return (
+    <main className={css.blogPageWrapper}>
+      <div className={css.pageHeader}>
+        <h1 className={css.pageTitle}>Blog</h1>
+        <p className={css.pageSubtitle}>
+          News, articles and useful materials
+        </p>
       </div>
-    )}
-  </main>
-);
+
+      <div className={css.contentLayout}>
+        <section className={css.mainContent}>
+          <div className={css.postsContainer}>
+            {isLoading ? (
+              <Loader />
+            ) : posts.length > 0 ? (
+              posts.map((post) => (
+                <BlogPost key={post._id} post={post} />
+              ))
+            ) : (
+              <h2 className={css.noPosts}>No posts available.</h2>
+            )}
+          </div>
+
+          {!isLoading && totalPages > 1 && (
+            <div className={css.pagination}>
+              {currentPage > 1 ? (
+                <a href={`?page=${currentPage - 1}`} className={css.pageBtn}>
+                  Previous
+                </a>
+              ) : (
+                <span className={`${css.pageBtn} ${css.disabled}`}>Previous</span>
+              )}
+
+              <span className={css.pageInfo}>
+                Page {currentPage} of {totalPages}
+              </span>
+
+              {currentPage < totalPages ? (
+                <a href={`?page=${currentPage + 1}`} className={css.pageBtn}>
+                  Next
+                </a>
+              ) : (
+                <span className={`${css.pageBtn} ${css.disabled}`}>Next</span>
+              )}
+            </div>
+          )}
+        </section>
+
+        <aside className={css.sidebar}>
+          <div className={css.authorCard}>
+            <h2 className={css.authorSectionTitle}>Author of the Blog</h2>
+
+            <img
+              src="/images/Dr.Bayo.jpeg"
+              alt="Dr Bayonle Adeogun"
+              className={css.authorPhoto}
+            />
+            <h3 className={css.authorName}>Dr Bayonle Adeogun, Ph.D., RAS</h3>
+            <p className={css.authorRole}>Production Manager (Speciality Products)</p>
+
+            <div className={css.authorContacts}>
+              <p>
+                <strong>Email:</strong>{" "}
+                <a href="mailto:adeogunjbayo@gmail.com">adeogunjbayo@gmail.com</a>
+              </p>
+              <p>
+                <strong>Tel / WhatsApp:</strong>{" "}
+                <a href="tel:08104149690">08104149690</a>
+              </p>
+            </div>
+
+            <p className={css.authorBio}>
+              Dr Adeogun is an accomplished Animal Scientist and Nutritionist with a B.Sc. in Animal Science, an M.Sc. in Agricultural Biochemistry and Nutrition, and a Ph.D. in Animal Nutrition, with specialization in Nutritional Toxicology.
+            </p>
+            <p className={css.authorBio}>
+              A Registered Animal Scientist and member of several professional bodies, he has over two decades of experience in monogastric animal nutrition, feed formulation, and farm management. His doctoral research and professional interests have focused on mycotoxicology, toxin binders, antioxidants, oxidative stress, hepatic detoxification and protection, and mycotoxin-biotransforming enzymes.
+            </p>
+            <p className={css.authorBio}>
+              He joined Novi-Agro Ltd in June 2022 and currently serves as Production Manager, Specialty Products.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  );
 }

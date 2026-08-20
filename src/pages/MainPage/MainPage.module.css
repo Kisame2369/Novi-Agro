@@ -79,10 +79,30 @@
 }
 
 .newProductInner {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
+}
+
+.productsContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    width: 100%;
+}
+
+.newProductSwiper {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding-bottom: 44px;
+}
+
+.newProductSwiper :global(.swiper-pagination) {
+    bottom: 0;
 }
 
 .newProductContent {
@@ -90,6 +110,65 @@
     grid-template-columns: 1fr;
     gap: 36px;
     align-items: center;
+    width: 100%;
+}
+
+.customArrow {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border: none;
+    background: transparent;
+    color: var(--green);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.customArrow svg {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    flex-shrink: 0;
+    display: block;
+    pointer-events: none;
+}
+
+.customArrow:hover {
+    transform: scale(1.2);
+    opacity: 0.75;
+}
+
+.customArrow:active {
+    transform: scale(0.95);
+}
+
+.newProductDot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    margin: 0 5px !important;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.newProductDot:hover {
+    background-color: var(--dark-green);
+}
+
+.newProductDotActive {
+    background-color: var(--green);
+    transform: scale(1.25);
 }
 
 .newProductText {
@@ -294,17 +373,36 @@
 }
 
 @media (max-width: 767px) {
+    .productsContainer {
+        gap: 12px;
+    }
+
     .newProductImageWrap {
         order: -1;
+    }
+
+    .customArrow {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+
+    .customArrow svg {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
     }
 }
 
 @media (min-width: 768px) {
     .sliderContainer {
-            height: 60vh;
-            min-height: 400px;
-            max-height: 600px;
-        }
+        height: 60vh;
+        min-height: 400px;
+        max-height: 600px;
+    }
 
     .overlay {
         gap: 18px;
@@ -325,16 +423,35 @@
     }
 
     .newProductSection {
-        padding: 70px 0 ;
+        padding: 70px 0;
     }
 
     .newProductInner {
         padding: 0 32px;
     }
 
+    .productsContainer {
+        gap: 48px;
+    }
+
     .newProductContent {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+    }
+
+    .customArrow {
+        flex: 0 0 48px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+    }
+
+    .customArrow svg {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
     }
 
     .newProductBadge {
@@ -381,13 +498,11 @@
 }
 
 @media (min-width: 1440px) {
-.sliderContainer {
+    .sliderContainer {
         height: 100vh;
         min-height: 0;
         max-height: none;
     }
-
-        
 
     .overlay {
         align-items: flex-start;
@@ -418,8 +533,27 @@
         padding: 0 40px;
     }
 
+    .productsContainer {
+        gap: 64px;
+    }
+
     .newProductContent {
         gap: 70px;
+    }
+
+    .customArrow {
+        flex: 0 0 54px;
+        width: 54px;
+        height: 54px;
+        min-width: 54px;
+        min-height: 54px;
+    }
+
+    .customArrow svg {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .newProductBadge {
