@@ -124,62 +124,65 @@ export default function MainPage() {
                 {newProducts.map((product) => (
                   <SwiperSlide key={product._id || product.name}>
                     <div className={css.newProductContent}>
+                      {/* Левая колонка (на мобиле/планшете: текст сверху, кнопка снизу) */}
                       <div className={css.newProductText}>
-                        <div className={css.newProductBadge}>
-                          <span>New Arrival</span>
-                        </div>
-                        {product.group && (
-                          <p className={css.newProductLabel}>{product.group}</p>
-                        )}
-                        <h2 className={css.newProductTitle}>{product.name}</h2>
-                        {product.description && (
-                          <p className={css.newProductDescription}>
-                            {product.description}
-                          </p>
-                        )}
-                        {(product.dosage ||
-                          product.packaging ||
-                          product.shelfLife) && (
-                          <div className={css.newProductSpecs}>
-                            {product.dosage && (
-                              <div className={css.newProductSpec}>
-                                <span className={css.specLabel}>Dosage</span>
-                                <span className={css.specValue}>
-                                  {product.dosage}
-                                </span>
-                              </div>
-                            )}
-                            {product.packaging && (
-                              <div className={css.newProductSpec}>
-                                <span className={css.specLabel}>Packaging</span>
-                                <span className={css.specValue}>
-                                  {product.packaging}
-                                </span>
-                              </div>
-                            )}
-                            {product.shelfLife && (
-                              <div className={css.newProductSpec}>
-                                <span className={css.specLabel}>
-                                  Shelf Life
-                                </span>
-                                <span className={css.specValue}>
-                                  {product.shelfLife}
-                                </span>
-                              </div>
-                            )}
+                        <div className={css.newProductInfo}>
+                          <div className={css.newProductBadge}>
+                            <span>New Arrival</span>
                           </div>
-                        )}
-
-                        {product.composition && (
-                          <div className={css.newProductComposition}>
-                            <span className={css.compositionLabel}>
-                              Composition
-                            </span>
-                            <p className={css.compositionText}>
-                              {product.composition}
+                          {product.group && (
+                            <p className={css.newProductLabel}>{product.group}</p>
+                          )}
+                          <h2 className={css.newProductTitle}>{product.name}</h2>
+                          {product.description && (
+                            <p className={css.newProductDescription}>
+                              {product.description}
                             </p>
-                          </div>
-                        )}
+                          )}
+                          {(product.dosage ||
+                            product.packaging ||
+                            product.shelfLife) && (
+                            <div className={css.newProductSpecs}>
+                              {product.dosage && (
+                                <div className={css.newProductSpec}>
+                                  <span className={css.specLabel}>Dosage</span>
+                                  <span className={css.specValue}>
+                                    {product.dosage}
+                                  </span>
+                                </div>
+                              )}
+                              {product.packaging && (
+                                <div className={css.newProductSpec}>
+                                  <span className={css.specLabel}>Packaging</span>
+                                  <span className={css.specValue}>
+                                    {product.packaging}
+                                  </span>
+                                </div>
+                              )}
+                              {product.shelfLife && (
+                                <div className={css.newProductSpec}>
+                                  <span className={css.specLabel}>
+                                    Shelf Life
+                                  </span>
+                                  <span className={css.specValue}>
+                                    {product.shelfLife}
+                                  </span>
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                          {product.composition && (
+                            <div className={css.newProductComposition}>
+                              <span className={css.compositionLabel}>
+                                Composition
+                              </span>
+                              <p className={css.compositionText}>
+                                {product.composition}
+                              </p>
+                            </div>
+                          )}
+                        </div>
 
                         <button
                           type="button"
@@ -189,6 +192,8 @@ export default function MainPage() {
                           Explore more
                         </button>
                       </div>
+
+                      {/* Картинка (встает между текстом и кнопкой на планшетах/мобилах) */}
                       <div className={css.newProductImageWrap}>
                         <div className={css.newProductImageBg}></div>
                         {product.imageUrl && (

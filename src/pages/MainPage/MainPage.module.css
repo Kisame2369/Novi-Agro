@@ -106,11 +106,56 @@
 }
 
 .newProductContent {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 36px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 24px;
+}
+
+.newProductText {
+    display: contents;
+}
+
+.newProductInfo {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.newProductImageWrap {
+    order: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.newProductBtn {
+    order: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--green);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.newProductBtn:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
 }
 
 .customArrow {
@@ -169,12 +214,6 @@
 .newProductDotActive {
     background-color: var(--green);
     transform: scale(1.25);
-}
-
-.newProductText {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
 }
 
 .newProductBadge {
@@ -268,40 +307,10 @@
     margin: 0;
 }
 
-.newProductBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: var(--green);
-    color: var(--white);
-    font-weight: 700;
-    font-size: 15px;
-    padding: 13px 28px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    align-self: flex-start;
-    margin-top: 4px;
-}
-
-.newProductBtn:hover {
-    background-color: var(--dark-green);
-    transform: translateY(-2px);
-}
-
-.newProductImageWrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-}
-
 .newProductImageBg {
     position: absolute;
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     background: linear-gradient(135deg, var(--yellow) 0%, #fde8b0 100%);
     border-radius: 50%;
     top: 50%;
@@ -312,8 +321,8 @@
 .newProductImage {
     position: relative;
     z-index: 2;
-    max-width: 220px;
-    max-height: 280px;
+    max-width: 200px;
+    max-height: 240px;
     object-fit: contain;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.18));
     transition: transform 0.3s ease;
@@ -374,11 +383,7 @@
 
 @media (max-width: 767px) {
     .productsContainer {
-        gap: 12px;
-    }
-
-    .newProductImageWrap {
-        order: -1;
+        gap: 8px;
     }
 
     .customArrow {
@@ -390,18 +395,68 @@
     }
 
     .customArrow svg {
-        width: 24px;
-        height: 24px;
-        min-width: 24px;
-        min-height: 24px;
+        width: 22px;
+        height: 22px;
+    }
+
+    .newProductImageBg {
+        width: 180px;
+        height: 180px;
+    }
+
+    .newProductImage {
+        max-width: 160px;
+        max-height: 200px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     .sliderContainer {
-        height: 60vh;
+        height: 55vh;
         min-height: 400px;
-        max-height: 600px;
+    }
+
+    .newProductSection {
+        padding: 60px 0;
+    }
+
+    .productsContainer {
+        gap: 24px;
+    }
+
+    .newProductTitle {
+        font-size: 38px;
+    }
+
+    .newProductImageBg {
+        width: 240px;
+        height: 240px;
+    }
+
+    .newProductImage {
+        max-width: 220px;
+        max-height: 260px;
+    }
+
+    .customArrow {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .customArrow svg {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sliderContainer {
+        height: 65vh;
+        min-height: 480px;
+        max-height: 650px;
     }
 
     .overlay {
@@ -410,7 +465,7 @@
     }
 
     .overlay h1 {
-        font-size: 44px;
+        font-size: 48px;
     }
 
     .overlay p {
@@ -435,8 +490,30 @@
     }
 
     .newProductContent {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 40px;
+        align-items: center;
+    }
+
+    .newProductText {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .newProductInfo {
+        order: unset;
+    }
+
+    .newProductBtn {
+        order: unset;
+        margin-top: 4px;
+    }
+
+    .newProductImageWrap {
+        order: unset;
+        min-height: 320px;
+        margin: 0;
     }
 
     .customArrow {
@@ -450,8 +527,6 @@
     .customArrow svg {
         width: 38px;
         height: 38px;
-        min-width: 38px;
-        min-height: 38px;
     }
 
     .newProductBadge {
@@ -474,18 +549,14 @@
         margin-bottom: 16px;
     }
 
-    .newProductImageWrap {
-        min-height: 320px;
-    }
-
     .newProductImageBg {
-        width: 300px;
-        height: 300px;
+        width: 290px;
+        height: 290px;
     }
 
     .newProductImage {
-        max-width: 280px;
-        max-height: 340px;
+        max-width: 270px;
+        max-height: 330px;
     }
 
     .newArrivalFab {
@@ -497,6 +568,7 @@
     }
 }
 
+/* Большие мониторы (от 1440px) */
 @media (min-width: 1440px) {
     .sliderContainer {
         height: 100vh;
@@ -552,8 +624,6 @@
     .customArrow svg {
         width: 44px;
         height: 44px;
-        min-width: 44px;
-        min-height: 44px;
     }
 
     .newProductBadge {
