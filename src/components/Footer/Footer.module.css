@@ -43,6 +43,7 @@
 
 .nav,
 .contacts,
+.socials,
 .addresses {
     display: flex;
     flex-direction: column;
@@ -54,13 +55,15 @@
     text-decoration: none;
     padding: 6px 0;
     transition: color 0.2s ease;
+    word-break: break-word;
 }
 
 .link:hover {
     color: var(--white);
+    text-decoration: none;
 }
 
-.social {
+.socialLink {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -68,12 +71,12 @@
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     padding: 6px 0;
-    margin-top: 4px;
     transition: color 0.2s ease;
 }
 
-.social:hover {
+.socialLink:hover {
     color: var(--white);
+    text-decoration: none;
 }
 
 .addressLink {
@@ -92,7 +95,7 @@
 
 .addressLink:hover {
     color: var(--white);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .bottom {
@@ -122,13 +125,9 @@
         font-size: 15px;
     }
 
-    .link {
+    .link,
+    .socialLink {
         padding: 4px 0;
-    }
-
-    .social {
-        padding: 4px 0;
-        margin-top: 6px;
     }
 
     .addressLink {
@@ -144,15 +143,15 @@
     }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
     .inner {
         max-width: 1440px;
-        grid-template-columns: 1.2fr 0.8fr 1.1fr 1.4fr;
-        gap: 48px;
-        padding: 56px 80px 40px;
+        grid-template-columns: 1.2fr 0.7fr 1.1fr 0.9fr 1.3fr;
+        gap: 36px;
+        padding: 56px 60px 40px;
     }
 
     .bottom {
-        padding: 24px 80px;
+        padding: 24px 60px;
     }
 }

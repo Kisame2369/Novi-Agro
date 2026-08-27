@@ -26,115 +26,155 @@ const PRODUCTS_QUERY = encodeURIComponent(`*[_type == "product"] | order(name as
   shelfLife
 }`);
 
+const normalizeText = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+
+const matchesWordBoundary = (text, query) => {
+  if (!query) return true;
+  if (!text) return false;
+
+  const normalizedText = normalizeText(text);
+  const searchTokens = normalizeText(query).split(/\s+/).filter(Boolean);
+
+  if (searchTokens.length === 0) return true;
+
+  return searchTokens.every((token) => {
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`(^|\\s)${escaped}`, "u");
+    return regex.test(normalizedText);
+  });
+};
 export default function ProductsPage() {
-    const [categories, setCategories] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedGroups, setSelectedGroups] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedProduct, setSelectedProduct] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedGroups, setSelectedGroups] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-    useEffect(() => {
-        Promise.all([
-            fetch(`${SANITY_URL}?query=${CATEGORIES_QUERY}`).then(r => r.json()),
-            fetch(`${SANITY_URL}?query=${PRODUCTS_QUERY}`).then(r => r.json()),
-        ]).then(([catData, prodData]) => {
-            setCategories(catData.result ?? []);
-            setProducts(prodData.result ?? []);
-            setLoading(false);
-        }).catch(() => setLoading(false));
-    }, []);
+  useEffect(() => {
+    Promise.all([
+      fetch(`${SANITY_URL}?query=${CATEGORIES_QUERY}`).then((r) => r.json()),
+      fetch(`${SANITY_URL}?query=${PRODUCTS_QUERY}`).then((r) => r.json()),
+    ])
+      .then(([catData, prodData]) => {
+        setCategories(catData.result ?? []);
+        setProducts(prodData.result ?? []);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
 
-    const allGroups = [...new Set(categories.map(c => c.group))].sort();
+  const allGroups = [...new Set(categories.map((c) => c.group))].sort();
 
-    const handleGroupToggle = (group) => {
-        setSelectedGroups(prev =>
-            prev.includes(group) ? prev.filter(g => g !== group) : [...prev, group]
-        );
-    };
-
-    const filteredCategories = categories.filter(cat => {
-        const matchesSearch = cat.group.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesFilter = selectedGroups.length === 0 || selectedGroups.includes(cat.group);
-        return matchesSearch && matchesFilter;
-    });
-
-    const handleCategoryClick = (category) => {
-        const groupProducts = products.filter(p => p.group === category.group);
-        setSelectedCategory({ ...category, groupProducts });
-        setSelectedProduct(null);
-    };
-
-    return (
-        <>
-            <p className={css.title}>Our Products</p>
-            <div className={css.container}>
-                <div className={css.wrapper}>
-                    <div className={css.leftSection}>
-                        <p className={css.filtersTitle}>Filters</p>
-                        <div className={css.categoryFilters}>
-                            {allGroups.map(group => (
-                                <label className={css.categoryLabel} key={group}>
-                                    <input
-                                        className={css.categoryCheckbox}
-                                        type="checkbox"
-                                        checked={selectedGroups.includes(group)}
-                                        onChange={() => handleGroupToggle(group)}
-                                    />
-                                    {group}
-                                </label>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className={css.rightSection}>
-                        <input
-                            className={css.searchInput}
-                            type="text"
-                            placeholder="Search categories..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-
-                        {loading ? (
-                            <Loader inline />
-                        ) : (
-                            <ul className={css.categoryGrid}>
-                                {filteredCategories.map((cat) => (
-                                    <li key={cat._id}>
-                                        <button
-                                            className={css.categoryCard}
-                                            onClick={() => handleCategoryClick(cat)}
-                                        >
-                                            <div className={css.imageWrapper}>
-                                                {cat.imageUrl ? (
-                                                    <img src={cat.imageUrl} alt={cat.group} className={css.image} />
-                                                ) : (
-                                                    <div className={css.noImage} />
-                                                )}
-                                            </div>
-                                            <p className={css.categoryName}>{cat.group}</p>
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {selectedCategory && (
-                <ProductModal
-                    category={selectedCategory}
-                    selectedProduct={selectedProduct}
-                    onProductChange={setSelectedProduct}
-                    onClose={() => {
-                        setSelectedCategory(null);
-                        setSelectedProduct(null);
-                    }}
-                />
-            )}
-        </>
+  const handleGroupToggle = (group) => {
+    setSelectedGroups((prev) =>
+      prev.includes(group) ? prev.filter((g) => g !== group) : [...prev, group]
     );
+  };
+
+  const query = searchTerm.trim();
+
+  const filteredCategories = categories.filter((cat) => {
+    const matchesFilter =
+      selectedGroups.length === 0 || selectedGroups.includes(cat.group);
+    if (!matchesFilter) return false;
+
+    if (!query) return true;
+
+    const categoryMatches = matchesWordBoundary(cat.group, query);
+
+    const hasMatchingProduct = products.some(
+      (prod) =>
+        prod.group === cat.group && matchesWordBoundary(prod.name, query)
+    );
+
+    return categoryMatches || hasMatchingProduct;
+  });
+
+  const handleCategoryClick = (category) => {
+    const groupProducts = products.filter((p) => p.group === category.group);
+    setSelectedCategory({ ...category, groupProducts });
+    setSelectedProduct(null);
+  };
+
+  return (
+    <>
+      <p className={css.title}>Our Products</p>
+      <div className={css.container}>
+        <div className={css.wrapper}>
+          <div className={css.leftSection}>
+            <p className={css.filtersTitle}>Filters</p>
+            <div className={css.categoryFilters}>
+              {allGroups.map((group) => (
+                <label className={css.categoryLabel} key={group}>
+                  <input
+                    className={css.categoryCheckbox}
+                    type="checkbox"
+                    checked={selectedGroups.includes(group)}
+                    onChange={() => handleGroupToggle(group)}
+                  />
+                  {group}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className={css.rightSection}>
+            <input
+              className={css.searchInput}
+              type="text"
+              placeholder="Search products or categories..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            {loading ? (
+              <Loader inline />
+            ) : (
+              <ul className={css.categoryGrid}>
+                {filteredCategories.map((cat) => (
+                  <li key={cat._id}>
+                    <button
+                      className={css.categoryCard}
+                      onClick={() => handleCategoryClick(cat)}
+                    >
+                      <div className={css.imageWrapper}>
+                        {cat.imageUrl ? (
+                          <img
+                            src={cat.imageUrl}
+                            alt={cat.group}
+                            className={css.image}
+                          />
+                        ) : (
+                          <div className={css.noImage} />
+                        )}
+                      </div>
+                      <p className={css.categoryName}>{cat.group}</p>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {selectedCategory && (
+        <ProductModal
+          category={selectedCategory}
+          selectedProduct={selectedProduct}
+          onProductChange={setSelectedProduct}
+          onClose={() => {
+            setSelectedCategory(null);
+            setSelectedProduct(null);
+          }}
+        />
+      )}
+    </>
+  );
 }

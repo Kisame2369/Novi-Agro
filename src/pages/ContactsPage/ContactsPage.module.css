@@ -1,5 +1,5 @@
 .page {
-    min-height: 100vh;
+    min-height: auto;
 }
 
 .content {
@@ -200,7 +200,7 @@
 .detailLines {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .detailLink {
@@ -209,14 +209,14 @@
     color: var(--green);
     text-decoration: none;
     transition: color 0.2s ease;
+    word-break: break-word;
 }
 
 .detailLink:hover {
     color: var(--dark-green);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-/* Tablet (от 768px): Карты 3 в ряд (компактные), контакты в ряд по 260px */
 @media (min-width: 768px) {
     .content {
         padding: 40px 20px 60px;
@@ -231,46 +231,38 @@
         margin-bottom: 40px;
     }
 
-    /* Карты офисов: 3 в ряд */
     .officesGrid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-    }
-
-    .officeCard:last-child {
-        grid-column: auto;
-        justify-self: stretch;
-        width: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 
     .officeMap {
-        height: 140px;
+        height: 180px;
     }
 
     .officeTag {
-        padding: 6px 12px;
-        font-size: 10px;
+        padding: 6px 14px;
+        font-size: 11px;
     }
 
     .officeBody {
-        padding: 12px 14px 16px;
-        gap: 8px;
+        padding: 16px 18px 20px;
+        gap: 10px;
     }
 
     .officeCity {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .officeAddress {
-        font-size: 12px;
-        line-height: 1.4;
+        font-size: 13px;
+        line-height: 1.45;
     }
 
     .officeLink {
-        font-size: 12px;
+        font-size: 13px;
     }
 
-    /* Контакты: оригинальный вид (в ряд с фиксированной шириной 260px) */
     .detailsGrid {
         flex-direction: row;
         flex-wrap: wrap;
@@ -299,7 +291,6 @@
     }
 }
 
-/* Desktop (от 1200px / 1440px) */
 @media (min-width: 1200px) {
     .content {
         padding: 56px 32px 80px;
@@ -315,7 +306,7 @@
     }
 
     .officesGrid {
-        gap: 24px;
+        gap: 28px;
     }
 
     .officeTag {
@@ -324,16 +315,16 @@
     }
 
     .officeMap {
-        height: 200px;
+        height: 220px;
     }
 
     .officeBody {
         padding: 20px 22px 24px;
-        gap: 10px;
+        gap: 12px;
     }
 
     .officeCity {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     .officeAddress {
@@ -349,7 +340,7 @@
     }
 
     .detailCard {
-        width: 260px;
+        width: 280px;
         padding: 28px 24px;
         gap: 14px;
     }
