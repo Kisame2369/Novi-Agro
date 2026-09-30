@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import ProductModal from "../../components/ProductModal/ProductModal.jsx";
 import css from "./ProductsPage.module.css";
 import Loader from "../../components/Loader/Loader.jsx";
@@ -47,6 +48,7 @@ const matchesWordBoundary = (text, query) => {
     return regex.test(normalizedText);
   });
 };
+
 export default function ProductsPage() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -56,18 +58,58 @@ export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
     Promise.all([
       fetch(`${SANITY_URL}?query=${CATEGORIES_QUERY}`).then((r) => r.json()),
       fetch(`${SANITY_URL}?query=${PRODUCTS_QUERY}`).then((r) => r.json()),
     ])
       .then(([catData, prodData]) => {
-        setCategories(catData.result ?? []);
-        setProducts(prodData.result ?? []);
+        const fetchedCats = catData.result ?? [];
+        const fetchedProds = prodData.result ?? [];
+
+        setCategories(fetchedCats);
+        setProducts(fetchedProds);
         setLoading(false);
+
+        const targetProductName = searchParams.get("product");
+        if (targetProductName) {
+          const matchedProduct = fetchedProds.find(
+            (p) =>
+              p.name?.trim().toLowerCase() ===
+              targetProductName.trim().toLowerCase()
+          );
+
+          if (matchedProduct) {
+            const matchedCategory = fetchedCats.find(
+              (c) => c.group === matchedProduct.group
+            );
+
+            const groupProducts = fetchedProds.filter(
+              (p) => p.group === matchedProduct.group
+            );
+
+            setSelectedCategory({
+              ...(matchedCategory || { group: matchedProduct.group }),
+              groupProducts,
+            });
+            setSelectedProduct(matchedProduct);
+          }
+        }
       })
       .catch(() => setLoading(false));
   }, []);
+
+  const handleCloseModal = () => {
+    setSelectedCategory(null);
+    setSelectedProduct(null);
+
+    if (searchParams.has("product")) {
+      searchParams.delete("product");
+      setSearchParams(searchParams, { replace: true });
+    }
+  };
 
   const allGroups = [...new Set(categories.map((c) => c.group))].sort();
 
@@ -169,10 +211,7 @@ export default function ProductsPage() {
           category={selectedCategory}
           selectedProduct={selectedProduct}
           onProductChange={setSelectedProduct}
-          onClose={() => {
-            setSelectedCategory(null);
-            setSelectedProduct(null);
-          }}
+          onClose={handleCloseModal}
         />
       )}
     </>

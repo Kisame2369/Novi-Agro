@@ -43,9 +43,17 @@ export default function MainPage() {
       .catch(() => setNewProductsLoading(false));
   }, []);
 
-  const handleExplore = (e) => {
+  const handleHeroExplore = (e) => {
     e.preventDefault();
     navigate("/products");
+  };
+
+  const handleExploreProduct = (product) => {
+    if (!product?.name) {
+      navigate("/products");
+      return;
+    }
+    navigate(`/products?product=${encodeURIComponent(product.name)}`);
   };
 
   return (
@@ -68,7 +76,7 @@ export default function MainPage() {
             to="/products"
             end
             className={css.button}
-            onClick={handleExplore}
+            onClick={handleHeroExplore}
           >
             Our products
           </NavLink>
@@ -124,7 +132,6 @@ export default function MainPage() {
                 {newProducts.map((product) => (
                   <SwiperSlide key={product._id || product.name}>
                     <div className={css.newProductContent}>
-                      {/* Левая колонка (на мобиле/планшете: текст сверху, кнопка снизу) */}
                       <div className={css.newProductText}>
                         <div className={css.newProductInfo}>
                           <div className={css.newProductBadge}>
@@ -187,13 +194,11 @@ export default function MainPage() {
                         <button
                           type="button"
                           className={css.newProductBtn}
-                          onClick={handleExplore}
+                          onClick={() => handleExploreProduct(product)}
                         >
                           Explore more
                         </button>
                       </div>
-
-                      {/* Картинка (встает между текстом и кнопкой на планшетах/мобилах) */}
                       <div className={css.newProductImageWrap}>
                         <div className={css.newProductImageBg}></div>
                         {product.imageUrl && (
