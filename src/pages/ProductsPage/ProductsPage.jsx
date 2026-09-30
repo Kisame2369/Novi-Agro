@@ -59,6 +59,7 @@ export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const targetProductName = searchParams.get("product");
 
   useEffect(() => {
     Promise.all([
@@ -73,7 +74,6 @@ export default function ProductsPage() {
         setProducts(fetchedProds);
         setLoading(false);
 
-        const targetProductName = searchParams.get("product");
         if (targetProductName) {
           const matchedProduct = fetchedProds.find(
             (p) =>
@@ -99,7 +99,7 @@ export default function ProductsPage() {
         }
       })
       .catch(() => setLoading(false));
-  }, []);
+  }, [targetProductName]);
 
   const handleCloseModal = () => {
     setSelectedCategory(null);
